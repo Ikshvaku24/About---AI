@@ -1,0 +1,810 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" type="text/css" href="engine0/style.css" />
+<link rel="stylesheet"  href="aos-master/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI SENSE</title>
+	<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+.container {
+	max-width:400px;
+	
+	
+	
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:NAVAJOWHITE;
+	padding:25px;
+	margin:10px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+background-color: white}
+:-moz-placeholder {
+ color:#888;
+background-color: white}
+::-moz-placeholder {
+ color:#888;
+background-color: white}
+:-ms-input-placeholder {
+ color:#888;
+background-color: white}
+
+	/* width */
+::-webkit-scrollbar {
+    width: 20px; background-color: white
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+	
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+#button2 {
+  FONT-FAMILY:papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+float:right;
+display: none;}
+
+#button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button2 span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -15px;
+  transition: 0.5s;
+}
+
+#button2:hover span {
+  padding-left: 25px;
+}
+
+#button2:hover span:after {
+  opacity: 1;
+ left: -20px;
+}
+#button2:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);
+}
+#divcontent{display: none;}	
+	#button {
+
+  font-family: papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.9s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+
+}
+
+#button span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.9s;
+}
+
+#button span::after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.9s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+  transition: 0.9s;}
+
+#button:hover span:after {
+  opacity: 1;
+  right: -20px;
+  transition: 0.9s;}
+#button:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);}
+	
+	#west{ margin-right:  200px;
+    border:15px solid Aquamarine ;
+    border-radius:10%;}
+
+	.mySlides {display: none}
+
+#p5 {vertical-align: middle;}
+
+
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.95;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.bgimg-1 {
+  background-image: url("artificial_intelligence.jpg");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("7_a.i._artificial_intelligence.jpg");
+  min-height: 400px;
+}
+.bgimg-3 {
+  background-image: url("a-i-artificial-intelligence-HD.jpg");
+  min-height: 400px;
+}
+
+
+
+	* {box-sizing: border-box;}
+.example input[type=text] {
+    height: 40px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.example input[type=text]:focus {
+    width: 225px;
+}
+.example button {
+    float: left;
+    height: 40px;
+    width: 50px;
+    margin-right: 5px;
+    background: #333;
+    
+    font-size: 17px;
+    
+    border: none;
+    cursor: pointer;
+}
+
+.example button:hover {
+    background: khaki;
+}
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+	
+	#upper{ height: 175px;
+		width: 100%;
+		margin: auto;
+		background: radial-gradient(circle, khaki,lightsalmon);
+	}
+	#p4{ height: 125px;
+	     padding-top: 15px;
+	     padding-left: 20px;}
+	#p1{padding-top: 10px;
+		padding-left: 20px;
+	height: 150px;}
+		#p2{padding-top: 10px;
+		height: 150px;}
+		#p3{padding-top: 10px;
+		height: 150px;}
+
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+div.we{font-style:oblique;
+       font-weight:bold;
+       font-size:50px;
+      padding:6px;
+      color:yellow;
+  float: left;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;}
+@keyframes example {
+   0%{color: black;}
+   25%{color:red ;}
+   50%{color: darkblue  ;}
+   75%{color: green  ;}
+  100%{color: black;}
+}
+
+
+	</style>
+
+	
+<body style="background-color: black;overflow-x: hidden;" >
+	
+
+<div  id="upper" style="display: flex;" >
+<img  id="p4" src="Webp.net-gifmaker (1).gif">
+
+<img  id="p2" src="coollogo_com-5822229.png">
+<img  id="p3" src="coollogo_com-5460411.png">
+ <div class="we" style="flex: 33%; padding-top: 40px" align="center"><font face="tempus sans ITC">"AI can read, see and hear" </font></div>
+ </div>
+
+ 
+ <div style="z-index: 20" id="navbar">
+  <a  href="index.html">Home</a>
+  <a  href="Interaction.html">Interaction</a>
+  <a class="active" href="Knowledge.html">Knowledge</a> 
+  <a href="Analyze.html">Analyze</a>
+  <a href="Service.html">Service</a>
+ <form class="example" action="/action_page.php">
+  <button  style="margin-left: 500px;margin-top: 3.2px; "><img style="height:20px ;width: 20px" src="152440010591697190.png"></button>
+  <input type="text" name="search" placeholder="Search.." style="margin-top: 3.2px">
+
+</form>
+</div>
+
+<script>
+window.onscroll = function() {myFuction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFuction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")}
+   else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<div class="bgimg-1">
+	<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+		AOS.init({
+			duration : 1000,
+		});
+	</script>
+<img  id="p5" src="coollogo_com-32554838.png" data-aos="zoom-in" style="display: block;margin-left: auto;margin-right: auto; width: 800px;height: 50px padding-top: 40px;">
+	
+	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+	<div
+  data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500" id="wowslider-container0">
+  <script type="text/javascript" src="engine0/jquery.js"></script>
+
+	<div class="ws_images"><ul>
+		<li><img src="data0/images/images_1.jpg" alt="images (1)" title="images (1)" id="wows0_0"/></li>
+		<li><img src="data0/images/download_2.jpg" alt="download (2)" title="download (2)" id="wows0_1"/></li>
+		<li><a href="http://wowslider.net"><img src="data0/images/download_3.jpg" alt="javascript photo gallery" title="download (3)" id="wows0_2"/></a></li>
+		<li><img src="data0/images/3thingstorememberwhenusingdataforartificialintelligence.jpg" alt="3-Things-to-Remember-When-Using-Data-for-Artificial-Intelligence" title="3-Things-to-Remember-When-Using-Data-for-Artificial-Intelligence" id="wows0_3"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="images (1)"><span><img src="data0/tooltips/images_1.jpg" alt="images (1)"/>1</span></a>
+		<a href="#" title="download (2)"><span><img src="data0/tooltips/download_2.jpg" alt="download (2)"/>2</span></a>
+		<a href="#" title="download (3)"><span><img src="data0/tooltips/download_3.jpg" alt="download (3)"/>3</span></a>
+		<a href="#" title="3-Things-to-Remember-When-Using-Data-for-Artificial-Intelligence"><span><img src="data0/tooltips/3thingstorememberwhenusingdataforartificialintelligence.jpg" alt="3-Things-to-Remember-When-Using-Data-for-Artificial-Intelligence"/>4</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">javascript slider</a> by WOWSlider.com v8.8</div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine0/wowslider.js"></script>
+	<script type="text/javascript" src="engine0/script.js"></script>
+	<!-- End WOWSlider.com BODY section --><br><br>
+
+	
+<br><br><br><div style="display: flex">
+<img data-aos="fade-left" style=" flex: 40% ;width: 40%; height: 1400px" src="Mozy-History-Data-Storage (1).png">
+
+	
+	<div data-aos="fade-right" style=" flex:60% ;position:relative; z-index: -1; color: crimson ;background-color:aqua;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 60%;">
+		
+
+<p>For a mind to be capable of tackling anything, it has to have a memory.<br><br>
+
+Humans are exceptionally good at transferring old skills to new problems. Machines, despite all their recent wins against humans, aren’t. This is partly due to how they’re trained: artificial neural networks like Google’s DeepMind learn to master a singular task and call it quits. To learn a new task, it has to reset, wiping out previous memories and starting again from scratch.<br><br>
+
+This phenomenon, quite aptly dubbed “catastrophic forgetting,” condemns our AIs to be one-trick ponies.<br><br>
+
+Now, taking inspiration from the hippocampus, our brain’s memory storage system, researchers at DeepMind and Imperial College London developed an algorithm that allows a program to learn one task after another, using the knowledge it gained along the way.<br><br>
+
+When challenged with a slew of Atari games, the neural network flexibly adapted its strategy and mastered each game, while conventional, memory-less algorithms faltered.<br><br>
+“The ability to learn tasks in succession without forgetting is a core component of biological and artificial intelligence,” writes the team in their paper, which was published in the journal Proceedings of the National Academy of Sciences.<br><br>
+
+“If we’re going to have computer programs that are more intelligent and more useful, then they will have to have this ability to learn sequentially,” says study lead author Dr. James Kirkpatrick, adding that the study overcame a “significant shortcoming” in artificial neural networks and AI.<br><br></p>
+<div >
+  <img src="DNA_Data_Storage_Future_928a615b-0dad-45c8-8993-13c2b7d580ef.jpg"  style=" float:right;height: 350px; width: 175px; margin-left: 30px;   border-radius: 12%; border: 10px solid chartreuse ">
+  <div  style="position:relative; z-index: -1; text-align:center;text-align: justify; border-radius: 5%; width: 100%;">
+
+<p>
+This isn’t the first time DeepMind has tried to give their AIs some memory power.<br><br>
+
+Last year, the team set their eyes on a kind of external memory module, somewhat similar to a human working memory—the ability to keep things in mind while using them to reason or solve problems.<br><br>
+
+Combining a neural network with a random access memory (better known as RAM), the researchers showed that their new hybrid system managed to perform multi-step reasoning, a type of task that’s long stumped conventional AI systems.<br><br>
+
+But it had a flaw: the hybrid, although powerful, required constant communication between the two components—not an elegant solution, and a total energy sink.<br><br>
+
+In this new study, DeepMind backed away from computer storage ideas, instead zooming deep into the human memory machine—the hippocampus—for inspiration.<br><br>
+
+And for good reason. Artificial neural networks, true to their name, are loosely modeled after their biological counterparts. Made up of layers of interconnecting neurons, the algorithm takes in millions of examples and learns by adjusting the connection between the neurons—somewhat like fine-tuning a guitar.<br><br>
+
+A very similar process occurs in the hippocampus. What’s different is how the connections change when learning a new task. In a machine, the weights are reset, and anything learned is forgotten.<br><br>
+
+In a human, memories undergo a kind of selection: if they help with subsequent learning, they become protected; otherwise, they’re erased. In this way, not only are memories stored within the neuronal connections themselves (without needing an external module), they also stick around if they’re proven useful.<br><br>
+
+This theory, called “synaptic consolidation,” is considered a fundamental aspect of learning and memory in the brain. So of course, DeepMind borrowed the idea and ran with it.<br><br></p>
+	
+
+</div>
+</div>
+
+</div>
+</div>
+<div class="bgimg-2" >
+  <br><br><br>
+<div style="display: flex;">
+<img data-aos="zoom-in-right" style=" width: 175px; flex: 33.33%;margin-right: 30px; margin-top:30px;margin-left: 40px; height: 400px;margin-bottom: 40px;border:10px solid  OrangeRed  ;border-radius: 5%" src="artificial-intelligence-how-algorithms-make-systems-smart.jpg">
+<img data-aos="zoom-in-left" style=" width: 175px;  flex: 33.33%;margin-left: 30px; margin-right: 40px; margin-top: 30px; height: 400px;margin-bottom: 40px;border:10px solid OrangeRed  ; border-radius: 5%" src="BN-OY980_0718_c_J_20160718174929.jpg"><br><br><br></div>
+<br><br><br>
+
+
+<div data-aos="fade-down"  style="border-radius:3%;background-color: LightGoldenRodYellow ; color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+    <p><h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Crafting an Algorithm</h1>
+
+The new algorithm mimics synaptic consolidation in a simple way.<br><br>
+
+After learning a game, the algorithm pauses and figures out how helpful each connection was to the task. It then keeps the most useful parts and makes those connections harder to change as it learns a new skill.<br><br>
+
+“[This] way there is room to learn the new task but the changes we’ve applied do not override what we’ve learned before,” says Kirkpatrick.<br><br>
+
+Think of it like this: visualize every connection as a spring with different stiffness. The more important a connection is for successfully tackling a task, the stiffer it becomes and thus subsequently harder to change.<br><br>
+
+“For this reason, we called our algorithm Elastic Weight Consolidation (EWC),” the authors explained in a blog post introducing the algorithm.<br><br></p>
+<button id="button" type="button" onclick="myFunction();" ><span >Click To Read More </span></button>
+</div>
+
+<div id="divcontent" data-aos="flip-up"  style="margin-top: 20px ;border-radius:3%;background-color: SpringGreen ; color: blue;text-align:center;padding:50px 80px;text-align: justify;">
+    <p><h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Game On</h1>
+
+To test their new algorithm, the team turned to DeepMind’s favorite AI training ground: Atari games.<br><br>
+
+Previously, the company unveiled a neural network-based AI called Deep Q-Network (DQN) that could teach itself to play Atari games as well as any human player. From Space Invaders to Pong, the AI mastered our nostalgic favorites, but only one game at a time.<br><br>
+
+“After 20 million plays with each game, the team found that their new AI mastered seven out of the ten games with a performance as good as any human player.”<br><br>
+The team now pitted their memory-enhanced DQN against its classical version, and put the agents through a random selection of ten Atari games. After 20 million plays with each game, the team found that their new AI mastered seven out of the ten games with a performance as good as any human player.<br><br>
+
+In stark contrast, without the memory boost, the classical algorithm could barely play a single game by the end of training. This was partly because the AI never learned to play more than one game and always forgot what it had learned when moving on to a new one.<br><br>
+
+“Today, computer programs cannot learn from data adaptively and in real time.<br><br>
+
+We have shown that catastrophic forgetting is not an insurmountable challenge for neural networks,” the authors say.<br><br></p>
+<button id="button2" type="button" onclick="myFnction();" ><span >Click To Read Less </span></button><br><br>
+<script>
+function myFunction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "none"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "block"
+var z = document.getElementById("button2");
+if (z.style.display === "block"){ z.style.display = "none" ;}
+else{z.style.display = "block";}
+}
+
+function myFnction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "block"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "none"
+var z = document.getElementById("button2");
+        z.style.display = "none"}
+</script>
+</div>
+</div  >
+<div class="bgimg-3">
+  <br><br><img data-aos="flip-up" style="display: block; margin-right: auto;margin-left: auto; width: 1000px ; height: 150px"  src="coollogo_com-16308420.png"><br><br>
+  <video class="e" data-aos="zoom-in" style="display: block;margin-right: auto;margin-left: 20%;" width="800" height="500" controls>
+  <source src="Brain-Computer Interface - Mysteries of the Brain.mp4" type="video/mp4"></video><br><br><br><br>
+    <div data-aos="fade-in" data-aos-duration="2000" style="border-radius:3%;background-image: url(127761-download-free-light-yellow-background-1920x1080-for-iphone-6.jpg); color: #777;text-align:center;padding:50px 80px;text-align: justify ; ">
+      <p>That’s not to say EWC is perfect.<br><br>
+
+One issue is the possibility of a “blackout catastrophe”: since the connections in EWC can only become less plastic over time, eventually the network saturates. This locks the network into a single unchangeable state, during which it can no longer retrieve memories or store new information.<br><br>
+
+That said, “We did not observe these limitations under the more realistic conditions for which EWC was designed—likely because the network was operating well under capacity in these regimes,” explained the authors.<br><br>
+
+Performance wise, the algorithm was a sort of “jack-of-all-trades”: decent at plenty, master of none. Although the network retained knowledge from learning each game, its performance for any given game was worse than traditional neural networks dedicated to that one game.<br><br>
+
+One possible stumbling block is that the algorithm may not have accurately judged the importance of certain connections in each game, which is something that needs to be further optimized, explain the authors.
+<br><br>
+“We have demonstrated that [EWC] can learn tasks sequentially, but we haven’t shown that it learns them better because it learns them sequentially,” says Kirkpatrick. “There’s still room for improvement.”<br><br>
+
+“The team hopes that their work will nudge AI towards the next big thing: general-purpose intelligence.”
+But the team hopes that their work will nudge AI towards the next big thing: general-purpose intelligence, in which AIs achieve the kind of adaptive learning and reasoning that come to humans naturally.<br><br>
+
+What’s more, the work could also feedback into neurobiological theories of learning.<br><br>
+
+Synaptic consolidation was previously only proven in very simple examples. Here we showed that the same theories can be applied in a more realistic and complex context—it really shows that the theory could be key to retaining our memories and know-how, explained the authors. After all, to emulate is to understand.<br><br>
+
+Over the past decade, neuroscience and machine learning have become increasingly intertwined. And no doubt our mushy thinking machines have more to offer their silicon brethren, and vice-versa.<br><br>
+
+“We hope that this research represents a step towards programs that can learn in a more flexible and efficient way,” the authors say.
+<br><br></p>
+  </div>
+</div>
+  </div>
+</div>
+<div style="background-color: black">
+<div style="display: flex">
+<h1 data-aos="fade-down-right" style="color: orange; font-family: Comic Sans MS; flex: 30%;
+    padding: 5px;margin-left:80px; margin-top: 30px;background-color: black">FOLLOW US ON OR LOCATE US </h1>
+<div style="flex: 70%;
+    padding: 5px; margin-top: 20px " data-aos="fade-up-left">
+ <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/twi?lang=en" class="fa fa-twitter"></a>
+<a href="https://www.google.com/
+" class="fa fa-google"></a>
+<a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+<a href="https://in.pinterest.com" class="fa fa-pinterest"></a>
+<a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+<a href="https://www.skype.com/en" class="fa fa-skype"></a>
+<a href="https://www.android.com" class="fa fa-android"></a>
+</div></div> <br>
+<div style=" display: flex; ">
+ <div data-aos="zoom-out-down" id="map" style="width:100px;height:450px; flex: 33.33%;
+    padding: 5px; margin-top: 10px;margin-left: 40px ;border : 10px solid DEEPSKYBLUE;border-radius: 5% ">
+   
+<script>
+// Initialize google maps
+function myMap() {
+  var myCenter = new google.maps.LatLng(28.703241, 77.128589);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwUSberJ-phZ5l4xOba-ntDGww5ns6oP4&callback=myMap"></script></div>
+<div  data-aos="flip-right" class="container" style=" flex: 33.33%;
+    ;margin-right: 60px; margin-left: 40px; ">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+ 
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" onclick="myfiction();return getData()" id="contact-submit"  >Submit</button>
+      <div id="snackbar" >Thanks for submitting</div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+  	$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+
+}
+  </script>
+  <script>
+function myfiction() {
+    var x = document.getElementById("snackbar");
+   
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+document.getElementById("contact").reset();
+
+}
+</script>
+ </div>
+  
+</div>
+
+</div>
+</body>
+</html>

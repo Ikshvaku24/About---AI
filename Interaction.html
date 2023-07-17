@@ -1,0 +1,759 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" type="text/css" href="engine0/style.css" />
+<link rel="stylesheet"  href="aos-master/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI SENSE</title>
+	<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+.container {
+	max-width:400px;
+	
+	
+	
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:NAVAJOWHITE;
+	padding:25px;
+	margin:10px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+background-color: white}
+:-moz-placeholder {
+ color:#888;
+background-color: white}
+::-moz-placeholder {
+ color:#888;
+background-color: white}
+:-ms-input-placeholder {
+ color:#888;
+background-color: white}
+
+	/* width */
+::-webkit-scrollbar {
+    width: 20px; background-color: white
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+	
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+#button2 {
+  FONT-FAMILY:papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+float:right;
+display: none;}
+
+#button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button2 span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -15px;
+  transition: 0.5s;
+}
+
+#button2:hover span {
+  padding-left: 25px;
+}
+
+#button2:hover span:after {
+  opacity: 1;
+ left: -20px;
+}
+#button2:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);
+}
+#divcontent{display: none;}	
+	#button {
+
+  font-family: papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.9s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+
+}
+
+#button span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.9s;
+}
+
+#button span::after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.9s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+  transition: 0.9s;}
+
+#button:hover span:after {
+  opacity: 1;
+  right: -20px;
+  transition: 0.9s;}
+#button:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);}
+	
+	#west{ margin-right:  200px;
+    border:15px solid Aquamarine ;
+    border-radius:10%;}
+
+	.mySlides {display: none}
+
+#p5 {vertical-align: middle;}
+
+
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.95;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.bgimg-1 {
+  background-image: url("artificial-engine_00229391.jpg");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("Banner-2.jpg");
+  min-height: 400px;
+}
+
+
+
+	* {box-sizing: border-box;}
+.example input[type=text] {
+    height: 40px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.example input[type=text]:focus {
+    width: 225px;
+}
+.example button {
+    float: left;
+    height: 40px;
+    width: 50px;
+    margin-right: 5px;
+    background: #333;
+    
+    font-size: 17px;
+    
+    border: none;
+    cursor: pointer;
+}
+
+.example button:hover {
+    background: khaki;
+}
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+	
+	#upper{ height: 175px;
+		width: 100%;
+		margin: auto;
+		background: radial-gradient(circle, khaki,lightsalmon);
+	}
+	#p4{ height: 125px;
+	     padding-top: 15px;
+	     padding-left: 20px;}
+	#p1{padding-top: 10px;
+		padding-left: 20px;
+	height: 150px;}
+		#p2{padding-top: 10px;
+		height: 150px;}
+		#p3{padding-top: 10px;
+		height: 150px;}
+
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+div.we{font-style:oblique;
+       font-weight:bold;
+       font-size:50px;
+      padding:6px;
+      color:yellow;
+  float: left;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;}
+@keyframes example {
+   0%{color: black;}
+   25%{color:red ;}
+   50%{color: darkblue  ;}
+   75%{color: green  ;}
+  100%{color: black;}
+}
+
+
+	</style>
+
+	
+<body style="background-color: black;overflow-x: hidden;" >
+	
+
+<div  id="upper" style="display: flex;" >
+<img  id="p4" src="Webp.net-gifmaker (1).gif">
+
+<img  id="p2" src="coollogo_com-5822229.png">
+<img  id="p3" src="coollogo_com-5460411.png">
+ <div class="we" style="flex: 33%; padding-top: 40px" align="center"><font face="tempus sans ITC">"AI can read, see and hear" </font></div>
+ </div>
+
+ 
+ <div style="z-index: 20" id="navbar">
+  <a  href="index.html">Home</a>
+  <a class="active" href="Interaction.html">Interaction</a>
+  <a href="Knowledge.html">Knowledge</a> 
+  <a href="Analyze.html">Analyze</a>
+  <a href="javascript:void(0)">Service</a>
+ <form class="example" action="/action_page.php">
+  <button  style="margin-left: 500px;margin-top: 3.2px; "><img style="height:20px ;width: 20px" src="152440010591697190.png"></button>
+  <input type="text" name="search" placeholder="Search.." style="margin-top: 3.2px">
+
+</form>
+</div>
+
+<script>
+window.onscroll = function() {myFuction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFuction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")}
+   else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<div class="bgimg-1">
+	<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+		AOS.init({
+			duration : 1000,
+		});
+	</script>
+<img  id="p5" src="coollogo_com-316491393.png" data-aos="zoom-in" style="display: block;margin-left: auto;margin-right: auto; width: 1200px;height: 200px padding-top: 40px;">
+	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+		<script type="text/javascript" src="engine0/jquery.js"></script>
+	<div data-aos="fade-left"
+     data-aos-anchor="#example-anchor"
+     data-aos-offset="500"
+     data-aos-duration="500" id="wowslider-container0">
+	<div class="ws_images"><ul>
+		<li><img src="data0/images/artificialintelligencee1479651046874.jpg" alt="artificial-intelligence-e1479651046874" title="artificial-intelligence-e1479651046874" id="wows0_0"/></li>
+		<li><img src="data0/images/p6361.jpg" alt="p6361" title="p6361" id="wows0_1"/></li>
+		<li><a href="http://wowslider.net"><img src="data0/images/robotsvshumans.jpg" alt="javascript slideshow" title="Robots-vs-Humans" id="wows0_2"/></a></li>
+		<li><img src="data0/images/images.jpg" alt="images" title="images" id="wows0_3"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="artificial-intelligence-e1479651046874"><span><img src="data0/tooltips/artificialintelligencee1479651046874.jpg" alt="artificial-intelligence-e1479651046874"/>1</span></a>
+		<a href="#" title="p6361"><span><img src="data0/tooltips/p6361.jpg" alt="p6361"/>2</span></a>
+		<a href="#" title="Robots-vs-Humans"><span><img src="data0/tooltips/robotsvshumans.jpg" alt="Robots-vs-Humans"/>3</span></a>
+		<a href="#" title="images"><span><img src="data0/tooltips/images.jpg" alt="images"/>4</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">jquery image slider</a> by WOWSlider.com v8.8</div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine0/wowslider.js"></script>
+	<script type="text/javascript" src="engine0/script.js"></script>
+	<!-- End WOWSlider.com BODY section --><br><br>
+
+	
+<br><br><br>
+
+	
+	<div data-aos="fade-right" style="position:relative; z-index: -1; color: #333;background-color:cornsilk;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+		<h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">PAIR | People+AI Research Initiative</h1>
+
+<p><br><br>The past few years have seen rapid advances in machine learning, with new technologies achieving dramatic improvements in technical performance. But we can go beyond optimizing objective functions. By building AI systems with users in mind from the ground up, we open up entire new areas of design and interaction.<br><br>
+
+PAIR is devoted to advancing the research and design of people-centric AI systems. We're interested in the full spectrum of human interaction with machine intelligence, from supporting engineers to understanding everyday experiences with AI.<br><br>
+
+Our goal is to do fundamental research, invent new technology, and create frameworks for design in order to drive a humanistic approach to artificial intelligence. And we want to be as open as possible: we’re building open source tools that everyone can use, hosting public events, and supporting academics in advancing the state of the art.<br><br></p>
+
+<button id="button" type="button" onclick="myFunction();" ><span >Click To Read More </span></button>
+<div id="divcontent"><div style="display: flex;">
+	<img src="card-01.jpg" height="280" width="320" style="margin-left: 20px;flex: 33.33%; border: 5px solid green; border-radius: 5%">
+
+	<img src="card-02.jpg" height="280" width="320" style="margin-left: 20px;flex: 33.33%; border: 5px solid green; border-radius: 5%"><img src="card-03.jpg" height="280" width="320"  style="margin-left: 20px;flex: 33.33%; border: 5px solid green; border-radius: 5%"></div>
+	<div style="display: flex;" >
+		<h2 style="text-align: center; flex: 33.33%; margin-left: 20px;font-weight: bold">Engineering and analysis</h2>
+		<h2 style="text-align: center; flex: 33.33%; margin-left: 20px;font-weight: bold">Augmented expert intelligence</h2>
+		<h2 style="text-align: center; flex: 33.33%; margin-left: 20px;font-weight: bold">AI for everyone</h2>
+		
+	
+</div>
+<div style="display: flex;" >
+		<h3 style="flex: 33.33%; margin-left: 20px;font-style: italic; text-align: center;">AI is built by people. How might we make it easier for engineers to build and understand machine learning systems?</h2>
+		<h3 style="flex: 33.33%; margin-left: 20px;font-style: italic; text-align: center;">How can AI aid and augment professionals in their jobs? How might AI systems amplify the expertise of doctors, technicians, designers, farmers, musicians, and more?</h2>
+		<h3 style="flex: 33.33%; margin-left: 20px;font-style: italic; text-align: center;">Can design thinking open up new applications for AI? How might we ensure inclusion so that everyone can benefit from breakthroughs in AI?</h2>
+		
+	
+</div>
+
+</div>
+<br><br>
+<button id="button2" type="button" onclick="myFnction();" ><span >Click To Read Less </span></button><br><br>
+<script>
+function myFunction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "none"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "block"
+var z = document.getElementById("button2");
+if (z.style.display === "block"){ z.style.display = "none" ;}
+else{z.style.display = "block";}
+}
+
+function myFnction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "block"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "none"
+var z = document.getElementById("button2");
+        z.style.display = "none"}
+</script>
+</div>
+
+
+</div>
+<div class="bgimg-2">
+
+	<br><br><h1 data-aos="zoom-in-left" style="font-weight: bold;color: ghostwhite; font-size: 90px; font-family: Aharoni ; margin-left: 20px"> Talk </h1><br><br>
+	<img src="U5dsFsCW63UvxHRQXjTUrQPk3h7RRi1.gif" data-aos="flip-left" style=" float:left;height: 300px; width: 300px; margin-top: 20px;margin-left: 10px;  margin-right: 40px; border-radius: 12%; border: 10px solid yellow ">
+	<div data-aos="fade-left" style="position:relative; z-index: -1; color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+
+<p>
+Existor made Evie. Evie's an AI and an advanced, emotional chatbot avatar. She can speak several languages and has become rather popular on YouTube <br> <br>
+Evie is a learning AI. The things she says were learned from a human being at some point in the last 10 years. The information is stored in a database which Evie looks through every time she needs to say something. Evie figures out what to say using proprietary software created by Rollo Carpenter and Existor. <br> <br>
+Evie's capacities go beyond mere verbal or textual interactions; the AI utilised in Evie also extends to controlling the timing and degree of facial expressions and movement. Her visually displayed reactions and emotions blend and vary in surprisingly complex ways, and a range of voices are delivered to your browser, along with lip synching information, to bring the avatar to life! Evie uses Flash if your browser supports it, but still works even without, thanks to our own Existor Avatar Player technology, allowing you to enjoy her to the full on iOS and Android.<br><br>
+</p></div>
+<br><br><h1 data-aos="zoom-in-right" style="float: right;font-weight: bold;color: ghostwhite; font-size: 90px; font-family: Aharoni ; margin-right:  20px"> Listen </h1><br><br><br><br><br>
+	<img src="giphy.gif" data-aos="flip-right" style=" float:right;height: 300px; width: 300px; margin-top: 20px;margin-left: 10px;  margin-right: 20px; border-radius: 12%; border: 10px solid yellow ">
+	<div data-aos="fade-right" style="position:relative; z-index: -1; color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+
+<p>
+Andrea Electronics is a pioneer of digital array microphones and noise reduction software.In future it can comprehend also.<br><br>
+Andrea is an industry leader of digital microphone product solutions that optimize the performance of voice driven applications such as: Automatic Speech Recognition (ASR), Voice over Internet Protocol (VoIP), In-Car Computing and Mobile Audio/Video Recording among others.<br><br>
+
+We possess both the technological and engineering capability to deliver truly innovative audio input solutions at cost-competitive prices. We can embed, scale or customize our unique Patented Microphone Technologies for various software and hardware platforms. In addition, we also provide over 20 years of embedded microphone acoustics know-how.<br><br>
+
+Commitments to research and development have enabled Andrea Electronics to carve a niche in a converging computing and communications marketplace. As a result, the Company has built a leadership position as a provider of front-end digital audio input solutions for OEMs.</p></div>
+<br><br><h1 data-aos="zoom-in-left" style="font-weight: bold;color: ghostwhite; font-size: 90px; font-family: Aharoni ; margin-left: 20px"> Watch </h1><br><br>
+	<img src="d068f3fd-5f85-4127-ba4e-796e7c2b8b91.gif" data-aos="flip-left" style=" float:left;height: 300px; width: 300px; margin-top: 20px;margin-left: 10px;  margin-right: 40px; border-radius: 12%; border: 10px solid yellow ">
+	<div data-aos="fade-left" style="position:relative; z-index: -1; color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+
+<p>
+A free app that narrates the world around you. Designed for the low vision community, this research project harnesses the power of AI to describe people, text and objects<br><br>
+Speaks text as soon as it appears in front of the camera<br>
+Provides audio guidance to capture a printed page, and recognizes the text, along with its original formatting<br>
+Gives audio beeps to help locate barcodes and then scans them to identify products<br>
+An experimental feature to describe the scene around you<br>
+Recognizes friends and describes people around you, including their emotions<br>
+Reads handwritten text<br>
+Generate an audible tone corresponding to the brightness in your surroundings<br>
+Recognizes friends and describes people around you, including their emotions<br>
+Identify currency bills when paying with cash<br><br>
+</p></div></div>
+<div style="background-color: black">
+<div style="display: flex">
+<h1 data-aos="fade-down-right" style="color: orange; font-family: Comic Sans MS; flex: 30%;
+    padding: 5px;margin-left:80px; margin-top: 30px;background-color: black">FOLLOW US ON OR LOCATE US </h1>
+<div style="flex: 70%;
+    padding: 5px; margin-top: 20px " data-aos="fade-up-left">
+ <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/twi?lang=en" class="fa fa-twitter"></a>
+<a href="https://www.google.com/
+" class="fa fa-google"></a>
+<a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+<a href="https://in.pinterest.com" class="fa fa-pinterest"></a>
+<a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+<a href="https://www.skype.com/en" class="fa fa-skype"></a>
+<a href="https://www.android.com" class="fa fa-android"></a>
+</div></div> <br>
+<div style=" display: flex; ">
+ <div data-aos="zoom-out-down" id="map" style="width:100px;height:450px; flex: 33.33%;
+    padding: 5px; margin-top: 10px;margin-left: 40px ;border : 10px solid DEEPSKYBLUE;border-radius: 5% ">
+   
+<script>
+// Initialize google maps
+function myMap() {
+  var myCenter = new google.maps.LatLng(28.703241, 77.128589);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwUSberJ-phZ5l4xOba-ntDGww5ns6oP4&callback=myMap"></script></div>
+<div  data-aos="flip-right" class="container" style=" flex: 33.33%;
+    ;margin-right: 60px; margin-left: 40px; ">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+ 
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" onclick="myfiction();return getData()" id="contact-submit"  >Submit</button>
+      <div id="snackbar" >Thanks for submitting</div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+  	$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+
+}
+  </script>
+  <script>
+function myfiction() {
+    var x = document.getElementById("snackbar");
+   
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+document.getElementById("contact").reset();
+
+}
+</script>
+ </div>
+  
+</div>
+
+</div>
+</body>
+</html>

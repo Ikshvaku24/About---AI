@@ -1,0 +1,610 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+
+<link rel="stylesheet"  href="aos-master/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI SENSE</title>
+	<style>
+
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+	position:relative;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:#F9F9F9;
+	padding:25px;
+	margin:50px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+
+	/* width */
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+	
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+#button2 {
+  FONT-FAMILY:papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+float:right;
+display: none;}
+
+#button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button2 span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -15px;
+  transition: 0.5s;
+}
+
+#button2:hover span {
+  padding-left: 25px;
+}
+
+#button2:hover span:after {
+  opacity: 1;
+ left: -20px;
+}
+#button2:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);
+}
+#divcontent{display: none;}	
+	#button {
+
+  font-family: papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.9s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+
+}
+
+#button span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.9s;
+}
+
+#button span::after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.9s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+  transition: 0.9s;}
+
+#button:hover span:after {
+  opacity: 1;
+  right: -20px;
+  transition: 0.9s;}
+#button:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);}
+	
+	#west{ margin-right:  200px;
+    border:15px solid Aquamarine ;
+    border-radius:10%;}
+
+	.mySlides {display: none}
+
+#p5 {vertical-align: middle;}
+
+
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.95;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.bgimg-1 {
+  background-image: url("cool-abstract-technology-wallpaper-1190x781.jpg");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("678786.jpg");
+  min-height: 400px;
+}
+
+
+	* {box-sizing: border-box;}
+form.example input[type=text] {
+    height: 40px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+form.example input[type=text]:focus {
+    width: 200px;
+}
+form.example button {
+    float: left;
+    height: 40px;
+    width: 50px;
+    padding: 10px;
+    background: #2196F3;
+    color: white;
+    font-size: 17px;
+    border: 1px solid grey;
+    border-left: none;
+    cursor: pointer;
+}
+
+form.example button:hover {
+    background: #0b7dda;
+}
+
+form.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+	
+	#upper{ height: 175px;
+		width: 100%;
+		margin: auto;
+		background: radial-gradient(circle, khaki,lightsalmon);
+	}
+	#p4{ height: 125px;
+	     padding-bottom: 15px;
+	     padding-left: 20px;}
+	#p1{padding-top: 10px;
+		padding-left: 20px;
+	height: 150px;}
+		#p2{padding-top: 10px;
+		height: 150px;}
+		#p3{padding-top: 10px;
+		height: 150px;}
+
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+	</style>
+
+	
+<body  >
+<div  id="upper">
+<img id="p4" src="Webp.net-gifmaker (1).gif">
+<img id="p1" src="coollogo_com-18426321.png"> 
+<img id="p2" src="coollogo_com-5822229.png">
+<img id="p3" src="coollogo_com-5460411.png">
+ </div>
+
+ 
+ <div style="z-index: 20" id="navbar">
+  <a class="active" href="javascript:void(0)">Home</a>
+  <a href="navbar.html">Interaction</a>
+  <a href="javascript:void(0)">Knowledge</a> 
+  <a href="javascript:void(0)">Analyze</a>
+  <a href="javascript:void(0)">Service</a>
+ <form class="example" action="/action_page.php">
+  <button type="submit"  style="margin:3.2px 0px 0px 500px"><i class="fa fa-search"></i></button>
+  <input type="text" name="search" placeholder="Search.." style="margin:3.2px">
+
+</form>
+</div>
+
+<script>
+window.onscroll = function() {myFuction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFuction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")}
+   else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<div class="bgimg-1">
+	<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+		AOS.init({
+			duration : 1000,
+		});
+	</script>
+<img  id="p5" src="coollogo_com-167651753.png" data-aos="fade-in" style="padding-left: 25%; padding-top: 40px;">
+
+	
+
+<div style="color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify;">
+<p>Artificial intelligence is a branch of computer science that aims to create intelligent machines. It has become an essential part of the technology industry.
+
+<br><br>Research associated with artificial intelligence is highly technical and specialized. The core problems of artificial intelligence include programming computers for certain traits such as: <br>
+
+ <img data-aos="zoom-in" id="west" src="download.jpg" align="right" style="padding-top: 2px">
+
+<br>Knowledge 
+<br>Reasoning
+<br>Problem solving                        
+<br>Perception
+<br>Learning
+<br>Planning
+<br>Ability to manipulate and move objects
+<br></p>
+
+<button id="button" type="button" onclick="myFunction();" ><span >Click To Read More </span></button>
+<div id="divcontent">Knowledge engineering is a core part of AI research. Machines can often act and react like humans only if they have abundant information relating to the world. Artificial intelligence must have access to objects categories properties and relations between all of them to implement knowledge engineering. Initiating common sense reasoning and problem solving power in machines is a difficult and tedious task.Machine learning is also a core part of AI. Learning without any kind of supervision requires an ability to identify patterns in streams of inputs whereas learning with adequate supervision involves classification and numerical regressions. Classification determines the category an object belongs to and regression deals with obtaining a set of numerical input or output examples thereby discovering functions enabling the generation of suitable outputs from respective inputs. Mathematical analysis of machine learning algorithms and their performance is a well-defined branch of theoretical computer science often referred to as computational learning theory.Machine perception deals with the capability to use sensory inputs to deduce the different aspects of the world while computer vision is the power to analyze visual inputs with a few sub-problems such as facial object and gesture recognition.Robotics is also a major field related to AI. Robots require intelligence to handle tasks such as object manipulation and navigation along with sub-problems of localization motion planning and mapping.
+
+</div>
+<button id="button2" type="button" onclick="myFnction();" ><span >Click To Read Less </span></button><br><br>
+<script>
+function myFunction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "none"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "block"
+var z = document.getElementById("button2");
+if (z.style.display === "block"){ z.style.display = "none" ;}
+else{z.style.display = "block";}
+}
+
+function myFnction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "block"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "none"
+var z = document.getElementById("button2");
+        z.style.display = "none"}
+</script>
+</div>
+
+
+</div>
+<div class="bgimg-2">
+	<br><br><br><br><img style="margin-left: 30%;"  src="coollogo_com-3745328.png"><br><br><br><br>
+<img style="margin-left: 10%;" src="Artificial-Intelligence.jpg"><br><br><br>
+<img style="margin-left: 25%;" src="Robo-human.png"><br><br><br>
+	<div style="background-color: white; color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+		<p>Here are 6 ways AI might affect us in the future.
+
+<br>1. Automated Transportation
+
+<br><br>We’re already seeing the beginnings of self-driving cars, though the vehicles are currently required to have a driver present at the wheel for safety. Despite these exciting developments, the technology isn’t perfect yet, and it will take a while for public acceptance to bring automated cars into widespread use. Google began testing a self-driving car in 2012, and since then, the U.S. Department of Transportation has released definitions of different levels of automation, with Google’s car classified as the first level down from full automation. Other transportation methods are closer to full automation, such as buses and trains.<br><br>
+
+2. Cyborg Technology
+
+<br><br>One of the main limitations of being human is simply our own bodies—and brains. Researcher Shimon Whiteson thinks that in the future, we will be able to augment ourselves with computers and enhance many of our own natural abilities. Though many of these possible cyborg enhancements would be added for convenience, others might serve a more practical purpose. Yoky Matsuka of Nest believes that AI will become useful for people with amputated limbs, as the brain will be able to communicate with a robotic limb to give the patient more control. This kind of cyborg technology would significantly reduce the limitations that amputees deal with on a daily basis.<br><br>
+
+3. Taking over dangerous jobs
+
+<br><br>Robots are already taking over some of the most hazardous jobs available, including bomb defusing. These robots aren’t quite robots yet, according to the BBC. They are technically drones, being used as the physical counterpart for defusing bombs, but requiring a human to control them, rather than using AI. Whatever their classification, they have saved thousands of lives by taking over one of the most dangerous jobs in the world. As technology improves, we will likely see more AI integration to help these machines function.<br><br>
+
+4. Solving climate change
+
+<br><br>Solving climate change might seem like a tall order from a robot, but as Stuart Russell explains, machines have more access to data than one person ever could—storing a mind-boggling number of statistics. Using big data, AI could one day identify trends and use that information to come up with solutions to the world’s biggest problems.<br><br>
+
+5. Robot as friends 
+
+<br><br>Who wouldn’t want a friend like C-3PO? At this stage, most robots are still emotionless and it’s hard to picture a robot you could relate to. However, a company in Japan has made the first big steps toward a robot companion—one who can understand and feel emotions. Introduced in 2014, “Pepper” the companion robot went on sale in 2015, with all 1,000 initial units selling out within a minute. The robot was programmed to read human emotions, develop its own emotions, and help its human friends stay happy. Pepper goes on sale in the U.S. in 2016, and more sophisticated friendly robots are sure to follow.<br><br>
+6. Improved elder care
+
+<br><br>For many seniors, everyday life is a struggle, and many have to hire outside help to manage their care, or rely on family members. AI is at a stage where replacing this need isn’t too far off, says Matthew Taylor, computer scientist at Washington State University. “Home” robots could help seniors with everyday tasks and allow them to stay independent and in their homes for as long as possible, which improves their overall well-being.</p>
+</div>
+
+</div>
+ <div id="map" style="width:100%;height:500px"></div>
+    </div>
+<script>
+// Initialize google maps
+function myMap() {
+  var myCenter = new google.maps.LatLng(28.703241, 77.128589);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwUSberJ-phZ5l4xOba-ntDGww5ns6oP4&callback=myMap"></script>
+<div class="container">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+  <!--   <fieldset>
+      <input placeholder="Your Web Site starts with http://" type="url" tabindex="4" required>
+    </fieldset> -->
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" onclick="myfiction();return getData()" id="contact-submit"  >Submit</button>
+      <div id="snackbar" >Thanks for submitting</div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+  	$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+
+}
+  </script>
+  <script>
+function myfiction() {
+    var x = document.getElementById("snackbar");
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+document.getElementById("contact").reset();
+
+}
+</script>
+ 
+  
+</div>
+
+
+</div>
+</body>
+</html>

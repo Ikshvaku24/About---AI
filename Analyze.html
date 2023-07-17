@@ -1,0 +1,743 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
+<link rel="stylesheet"  href="aos-master/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI SENSE</title>
+	<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+.container {
+	max-width:400px;
+	
+	
+	
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:NAVAJOWHITE;
+	padding:25px;
+	margin:10px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+background-color: white}
+:-moz-placeholder {
+ color:#888;
+background-color: white}
+::-moz-placeholder {
+ color:#888;
+background-color: white}
+:-ms-input-placeholder {
+ color:#888;
+background-color: white}
+
+	/* width */
+::-webkit-scrollbar {
+    width: 20px; background-color: white
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+	
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+#button2 {
+  FONT-FAMILY:papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+float:right;
+display: none;}
+
+#button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button2 span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -15px;
+  transition: 0.5s;
+}
+
+#button2:hover span {
+  padding-left: 25px;
+}
+
+#button2:hover span:after {
+  opacity: 1;
+ left: -20px;
+}
+#button2:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);
+}
+#divcontent{display: none;}	
+	#button {
+
+  font-family: papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.9s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+
+}
+
+#button span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.9s;
+}
+
+#button span::after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.9s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+  transition: 0.9s;}
+
+#button:hover span:after {
+  opacity: 1;
+  right: -20px;
+  transition: 0.9s;}
+#button:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);}
+	
+	#west{ margin-right:  200px;
+    border:15px solid Aquamarine ;
+    border-radius:10%;}
+
+	.mySlides {display: none}
+
+#p5 {vertical-align: middle;}
+
+
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.95;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.bgimg-1 {
+  background-image: url("businesswoman-standing-black-wall-handwriting-human-head-shape-concept-of-artificial-intelligence-at-chalkboard_ha_ocahyg_thumbnail-full14.png");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("Banner-2.jpg");
+  min-height: 400px;
+}
+
+
+
+	* {box-sizing: border-box;}
+.example input[type=text] {
+    height: 40px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.example input[type=text]:focus {
+    width: 225px;
+}
+.example button {
+    float: left;
+    height: 40px;
+    width: 50px;
+    margin-right: 5px;
+    background: #333;
+    
+    font-size: 17px;
+    
+    border: none;
+    cursor: pointer;
+}
+
+.example button:hover {
+    background: khaki;
+}
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+	
+	#upper{ height: 175px;
+		width: 100%;
+		margin: auto;
+		background: radial-gradient(circle, khaki,lightsalmon);
+	}
+	#p4{ height: 125px;
+	     padding-top: 15px;
+	     padding-left: 20px;}
+	#p1{padding-top: 10px;
+		padding-left: 20px;
+	height: 150px;}
+		#p2{padding-top: 10px;
+		height: 150px;}
+		#p3{padding-top: 10px;
+		height: 150px;}
+
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+div.we{font-style:oblique;
+       font-weight:bold;
+       font-size:50px;
+      padding:6px;
+      color:yellow;
+  float: left;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;}
+@keyframes example {
+   0%{color: black;}
+   25%{color:red ;}
+   50%{color: darkblue  ;}
+   75%{color: green  ;}
+  100%{color: black;}
+}
+
+
+	</style>
+
+	
+<body style="background-color: black;overflow-x: hidden;" >
+	
+
+<div  id="upper" style="display: flex;" >
+<img  id="p4" src="Webp.net-gifmaker (1).gif">
+
+<img  id="p2" src="coollogo_com-5822229.png">
+<img  id="p3" src="coollogo_com-5460411.png">
+ <div class="we" style="flex: 33%; padding-top: 40px" align="center"><font face="tempus sans ITC">"AI can read, see and hear" </font></div>
+ </div>
+
+ 
+ <div style="z-index: 20" id="navbar">
+  <a  href="index.html">Home</a>
+  <a  href="Interaction.html">Interaction</a>
+  <a href="Knowledge.html">Knowledge</a> 
+  <a class="active" href="Analyze.html">Analyze</a>
+  <a href="Service.html">Service</a>
+ <form class="example" action="/action_page.php">
+  <button  style="margin-left: 500px;margin-top: 3.2px; "><img style="height:20px ;width: 20px" src="152440010591697190.png"></button>
+  <input type="text" name="search" placeholder="Search.." style="margin-top: 3.2px">
+
+</form>
+</div>
+
+<script>
+window.onscroll = function() {myFuction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFuction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")}
+   else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<div class="bgimg-1">
+	<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+		AOS.init({
+			duration : 1000,
+		});
+	</script>
+<img  id="p5" src="coollogo_com-258901276.png" data-aos="zoom-in" style="display: block;margin-left: auto;margin-right: auto; width: 400px;height: 200px padding-top: 40px;">
+	
+	<br><br>
+<!-- Start WOWSlider.com BODY section -->
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+    <li><img src="data1/images/artificialintelligenceconcept1.jpg" alt="Artificial-intelligence-concept-1" title="Artificial-intelligence-concept-1" id="wows1_0"/></li>
+    <li><img src="data1/images/bqepu6cmaa5n41.jpg" alt="BqeP-U6CMAA5n41" title="BqeP-U6CMAA5n41" id="wows1_1"/></li>
+    <li><a href="http://wowslider.net"><img src="data1/images/download_1.jpg" alt="javascript slideshow" title="download (1)" id="wows1_2"/></a></li>
+    <li><img src="data1/images/sentimentanalysisinsalesforceapartofartificialintelligence.png" alt="Sentiment-Analysis-in-Salesforce-–-A-Part-of-Artificial-Intelligence" title="Sentiment-Analysis-in-Salesforce-–-A-Part-of-Artificial-Intelligence" id="wows1_3"/></li>
+  </ul></div>
+  <div class="ws_bullets"><div>
+    <a href="#" title="Artificial-intelligence-concept-1"><span><img src="data1/tooltips/artificialintelligenceconcept1.jpg" alt="Artificial-intelligence-concept-1"/>1</span></a>
+    <a href="#" title="BqeP-U6CMAA5n41"><span><img src="data1/tooltips/bqepu6cmaa5n41.jpg" alt="BqeP-U6CMAA5n41"/>2</span></a>
+    <a href="#" title="download (1)"><span><img src="data1/tooltips/download_1.jpg" alt="download (1)"/>3</span></a>
+    <a href="#" title="Sentiment-Analysis-in-Salesforce-–-A-Part-of-Artificial-Intelligence"><span><img src="data1/tooltips/sentimentanalysisinsalesforceapartofartificialintelligence.png" alt="Sentiment-Analysis-in-Salesforce-–-A-Part-of-Artificial-Intelligence"/>4</span></a>
+  </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">bootstrap slideshow</a> by WOWSlider.com v8.8</div>
+<div class="ws_shadow"></div>
+</div>  
+<script type="text/javascript" src="engine1/wowslider.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script>
+<!-- End WOWSlider.com BODY section --><br><br><br>
+	
+	<div data-aos="fade-right" style="position:relative; z-index: -1; color: #333;background-color:HoneyDew ;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+		<h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Philosophy of artificial intelligence</h1>
+    <img src="Mjk4NjQzNw.jpeg" data-aos="flip-right" style=" float:right;height: 400px; width: 300px; margin-top: 20px;margin-left: 10px;  margin-right: 40px; border-radius: 12%; border: 10px solid yellow ">
+
+<p><br><br>The philosophy of artificial intelligence attempts to answer such questions as follows:<br><br>
+
+Can a machine act intelligently? Can it solve any problem that a person would solve by thinking?<br><br>
+Are human intelligence and machine intelligence the same? Is the human brain essentially a computer?<br><br>
+Can a machine have a mind, mental states, and consciousness in the same way that a human being can? Can it feel how things are?<br><br>
+These three questions reflect the divergent interests of AI researchers, linguists, cognitive scientists and philosophers respectively. The scientific answers to these questions depend on the definition of "intelligence" and "consciousness" and exactly which "machines" are under discussion.<br><br>
+
+Important propositions in the philosophy of AI include:<br><br>
+
+Turing's "polite convention": If a machine behaves as intelligently as a human being, then it is as intelligent as a human being.[2]
+The Dartmouth proposal: "Every aspect of learning or any other feature of intelligence can be so precisely described that a machine can be made to simulate it."[3]<br><br>
+Newell and Simon's physical symbol system hypothesis: "A physical symbol system has the necessary and sufficient means of general intelligent action."[4]<br><br>
+Searle's strong AI hypothesis: "The appropriately programmed computer with the right inputs and outputs would thereby have a mind in exactly the same sense human beings have minds."[5]<br><br>
+Hobbes' mechanism: "For 'reason' ... is nothing but 'reckoning,' that is adding and subtracting, of the consequences of general names agreed upon for the 'marking' and 'signifying' of our thoughts..."<br><br></p>
+
+<button id="button" type="button" onclick="myFunction();" ><span >Click To Read More </span></button>
+<div id="divcontent">Hubert Dreyfus describes this argument as claiming that "if the nervous system obeys the laws of physics and chemistry, which we have every reason to suppose it does, then .... we ... ought to be able to reproduce the behavior of the nervous system with some physical device".[15] This argument, first introduced as early as 1943[16] and vividly described by Hans Moravec in 1988,[17] is now associated with futurist Ray Kurzweil, who estimates that computer power will be sufficient for a complete brain simulation by the year 2029.[18] A non-real-time simulation of a thalamocortical model that has the size of the human brain (1011 neurons) was performed in 2005[19] and it took 50 days to simulate 1 second of brain dynamics on a cluster of 27 processors.<br><br>
+
+Few[quantify] disagree that a brain simulation is possible in theory,[citation needed][according to whom?] even critics of AI such as Hubert Dreyfus and John Searle.[20] However, Searle points out that, in principle, anything can be simulated by a computer; thus, bringing the definition to its breaking point leads to the conclusion that any process at all can technically be considered "computation". "What we wanted to know is what distinguishes the mind from thermostats and livers," he writes.[21] Thus, merely mimicking the functioning of a brain would in itself be an admission of ignorance regarding intelligence and the nature of the mind
+	<br><br>
+
+</div>
+<br><br>
+<button id="button2" type="button" onclick="myFnction();" ><span >Click To Read Less </span></button><br><br></div><br><br><br>
+<div data-aos="fade-down"  style="border-radius:3%;background-color: LightGoldenRodYellow ; color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+    <p><h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Can a machine have a mind, consciousness, and mental states?</h1>
+
+This is a philosophical question, related to the problem of other minds and the hard problem of consciousness. The question revolves around a position defined by John Searle as "strong AI":<br><br>
+
+A physical symbol system can have a mind and mental states.[5]<br><br>
+Searle distinguished this position from what he called "weak AI":<br><br>
+
+A physical symbol system can act intelligently.[5]<br><br>
+Searle introduced the terms to isolate strong AI from weak AI so he could focus on what he thought was the more interesting and debatable issue. He argued that even if we assume that we had a computer program that acted exactly like a human mind, there would still be a difficult philosophical question that needed to be answered.[5]<br><br>
+
+Neither of Searle's two positions are of great concern to AI research, since they do not directly answer the question "can a machine display general intelligence?" (unless it can also be shown that consciousness is necessary for intelligence). Turing wrote "I do not wish to give the impression that I think there is no mystery about consciousness… [b]ut I do not think these mysteries necessarily need to be solved before we can answer the question [of whether machines can think]."[43] Russell and Norvig agree: "Most AI researchers take the weak AI hypothesis for granted, and don't care about the strong AI hypothesis."[44]<br><br>
+
+There are a few researchers who believe that consciousness is an essential element in intelligence, such as Igor Aleksander, Stan Franklin, Ron Sun, and Pentti Haikonen, although their definition of "consciousness" strays very close to "intelligence." (See artificial consciousness.)<br><br>
+
+Before we can answer this question, we must be clear what we mean by "minds", "mental states" and "consciousness".<br><br></p></div><br><br><br>
+<div data-aos="fade-down"  style="border-radius:3%;background-color: Linen  ; color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+<h1 style="font-weight: bold; text-align: center;font-size: 50px; color: salmon;">Consciousness, minds, mental states, meaning</h1><br><br>
+The words "mind" and "consciousness" are used by different communities in different ways. Some new age thinkers, for example, use the word "consciousness" to describe something similar to Bergson's "élan vital": an invisible, energetic fluid that permeates life and especially the mind. Science fiction writers use the word to describe some essential property that makes us human: a machine or alien that is "conscious" will be presented as a fully human character, with intelligence, desires, will, insight, pride and so on. (Science fiction writers also use the words "sentience", "sapience," "self-awareness" or "ghost" - as in the Ghost in the Shell manga and anime series - to describe this essential human property). For others[who?], the words "mind" or "consciousness" are used as a kind of secular synonym for the soul.<br><br>
+
+For philosophers, neuroscientists and cognitive scientists, the words are used in a way that is both more precise and more mundane: they refer to the familiar, everyday experience of having a "thought in your head", like a perception, a dream, an intention or a plan, and to the way we know something, or mean something or understand something[citation needed]. "It's not hard to give a commonsense definition of consciousness" observes philosopher John Searle.[45] What is mysterious and fascinating is not so much what it is but how it is: how does a lump of fatty tissue and electricity give rise to this (familiar) experience of perceiving, meaning or thinking?<br><br>
+
+Philosophers call this the hard problem of consciousness. It is the latest version of a classic problem in the philosophy of mind called the "mind-body problem."[46] A related problem is the problem of meaning or understanding (which philosophers call "intentionality"): what is the connection between our thoughts and what we are thinking about (i.e. objects and situations out in the world)? A third issue is the problem of experience (or "phenomenology"): If two people see the same thing, do they have the same experience? Or are there things "inside their head" (called "qualia") that can be different from person to person?[47]<br><br>
+
+Neurobiologists believe all these problems will be solved as we begin to identify the neural correlates of consciousness: the actual relationship between the machinery in our heads and its collective properties; such as the mind, experience and understanding. Some of the harshest critics of artificial intelligence agree that the brain is just a machine, and that consciousness and intelligence are the result of physical processes in the brain.[48] The difficult philosophical question is this: can a computer program, running on a digital machine that shuffles the binary digits of zero and one, duplicate the ability of the neurons to create minds, with mental states (like understanding or perceiving), and ultimately, the experience of consciousness?<br><br></p>
+<button id="button" type="button" onclick="myFunction();" ><span >Click To Read More </span></button>
+</div>
+<script>
+function myFunction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "none"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "block"
+var z = document.getElementById("button2");
+if (z.style.display === "block"){ z.style.display = "none" ;}
+else{z.style.display = "block";}
+}
+
+function myFnction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "block"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "none"
+var z = document.getElementById("button2");
+        z.style.display = "none"}
+</script>
+</div>
+
+
+</div>
+	
+</div>
+<div style="background-color: black">
+<div style="display: flex">
+<h1 data-aos="fade-down-right" style="color: orange; font-family: Comic Sans MS; flex: 30%;
+    padding: 5px;margin-left:80px; margin-top: 30px;background-color: black">FOLLOW US ON OR LOCATE US </h1>
+<div style="flex: 70%;
+    padding: 5px; margin-top: 20px " data-aos="fade-up-left">
+ <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/twi?lang=en" class="fa fa-twitter"></a>
+<a href="https://www.google.com/
+" class="fa fa-google"></a>
+<a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+<a href="https://in.pinterest.com" class="fa fa-pinterest"></a>
+<a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+<a href="https://www.skype.com/en" class="fa fa-skype"></a>
+<a href="https://www.android.com" class="fa fa-android"></a>
+</div></div> <br>
+<div style=" display: flex; ">
+ <div data-aos="zoom-out-down" id="map" style="width:100px;height:450px; flex: 33.33%;
+    padding: 5px; margin-top: 10px;margin-left: 40px ;border : 10px solid DEEPSKYBLUE;border-radius: 5% ">
+   
+<script>
+// Initialize google maps
+function myMap() {
+  var myCenter = new google.maps.LatLng(28.703241, 77.128589);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwUSberJ-phZ5l4xOba-ntDGww5ns6oP4&callback=myMap"></script></div>
+<div  data-aos="flip-right" class="container" style=" flex: 33.33%;
+    ;margin-right: 60px; margin-left: 40px; ">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+ 
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" onclick="myfiction();return getData()" id="contact-submit"  >Submit</button>
+      <div id="snackbar" >Thanks for submitting</div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+  	$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+
+}
+  </script>
+  <script>
+function myfiction() {
+    var x = document.getElementById("snackbar");
+   
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+document.getElementById("contact").reset();
+
+}
+</script>
+ </div>
+  
+</div>
+
+</div>
+</body>
+</html>

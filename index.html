@@ -1,0 +1,742 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<link rel="stylesheet" type="text/css" href="engine0/style.css" />
+<link rel="stylesheet"  href="aos-master/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI SENSE</title>
+	<style>
+  
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+.container {
+	max-width:400px;
+	
+	
+	
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:NAVAJOWHITE;
+	padding:25px;
+	margin:10px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+background-color: white}
+:-moz-placeholder {
+ color:#888;
+background-color: white}
+::-moz-placeholder {
+ color:#888;
+background-color: white}
+:-ms-input-placeholder {
+ color:#888;
+background-color: white}
+
+	/* width */
+::-webkit-scrollbar {
+    width: 20px; background-color: white
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+	
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+#button2 {
+  FONT-FAMILY:papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+float:right;
+display: none;}
+
+#button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button2 span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -15px;
+  transition: 0.5s;
+}
+
+#button2:hover span {
+  padding-left: 25px;
+}
+
+#button2:hover span:after {
+  opacity: 1;
+ left: -20px;
+}
+#button2:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);
+}
+#divcontent{display: none;}	
+	#button {
+
+  font-family: papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.9s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+
+}
+
+#button span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.9s;
+}
+
+#button span::after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.9s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+  transition: 0.9s;}
+
+#button:hover span:after {
+  opacity: 1;
+  right: -20px;
+  transition: 0.9s;}
+#button:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);}
+	
+	#west{ margin-right:  200px;
+    border:15px solid Aquamarine ;
+    border-radius:10%;}
+
+	.mySlides {display: none}
+
+#p5 {vertical-align: middle;}
+
+
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.95;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -1;
+}
+.bgimg-1 {
+  background-image: url("cool-abstract-technology-wallpaper-1190x781.jpg");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("678786.jpg");
+  min-height: 400px;
+}
+.bgimg-3 {
+  background-image: url("163988737-ai-wallpapers.jpg");
+  min-height: 400px;
+}
+
+
+
+	* {box-sizing: border-box;}
+.example input[type=text] {
+    height: 40px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.example input[type=text]:focus {
+    width: 225px;
+}
+.example button {
+    float: left;
+    height: 40px;
+    width: 50px;
+    margin-right: 5px;
+    background: #333;
+    
+    font-size: 17px;
+    
+    border: none;
+    cursor: pointer;
+}
+
+.example button:hover {
+    background: khaki;
+}
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+	
+	#upper{ height: 175px;
+		width: 100%;
+		margin: auto;
+		background: radial-gradient(circle, khaki,lightsalmon);
+	}
+	#p4{ height: 125px;
+	     padding-top: 15px;
+	     padding-left: 20px;}
+	#p1{padding-top: 10px;
+		padding-left: 20px;
+	height: 150px;}
+		#p2{padding-top: 10px;
+		height: 150px;}
+		#p3{padding-top: 10px;
+		height: 150px;}
+
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+div.we{font-style:oblique;
+       font-weight:bold;
+       font-size:50px;
+      padding:6px;
+      color:yellow;
+  float: left;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;}
+@keyframes example {
+   0%{color: black;}
+   25%{color:red ;}
+   50%{color: darkblue  ;}
+   75%{color: green  ;}
+  100%{color: black;}
+}
+
+
+	</style>
+
+	
+<body style="background-color: black;overflow-x: hidden;" >
+	
+
+<div  id="upper" style="display: flex;" >
+<img  id="p4" src="Webp.net-gifmaker (1).gif">
+
+<img  id="p2" src="coollogo_com-5822229.png">
+<img  id="p3" src="coollogo_com-5460411.png">
+ <div class="we" style="flex: 33%; padding-top: 40px" align="center"><font face="tempus sans ITC">"AI can read, see and hear" </font></div>
+ </div>
+
+ 
+ <div style="z-index: 2" id="navbar">
+  <a class="active" href="Home Page.html">Home</a>
+  <a href="Interaction.html">Interaction</a>
+  <a href="Knowledge.html">Knowledge</a> 
+  <a href="Analyze.html">Analyze</a>
+  <a href="Service.html">Service</a>
+ <form class="example" action="/action_page.php">
+  <button  style="margin-left: 500px;margin-top: 3.2px; "><img style="height:20px ;width: 20px" src="152440010591697190.png"></button>
+  <input type="text" name="search" placeholder="Search.." style="margin-top: 3.2px">
+
+</form>
+</div>
+
+<script>
+window.onscroll = function() {myFuction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFuction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")}
+   else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<div class="bgimg-1">
+	<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+		AOS.init({
+			duration : 1000,
+		});
+	</script>
+<img  id="p5" src="coollogo_com-167651753.png" data-aos="zoom-in" style="padding-left: 25%; padding-top: 40px;">
+
+	
+
+
+	<!-- Start WOWSlider.com BODY section --> <!-- add to the <body> of your page -->
+	<script type="text/javascript" src="engine0/jquery.js"></script>
+	<div data-aos="fade-up" id="wowslider-container0">
+
+
+	<div class="ws_images"><ul>
+		<li><img src="data0/images/thumb1920523144.jpg" alt="thumb-1920-523144" title="thumb-1920-523144" id="wows0_0"/></li>
+		<li><img src="data0/images/maxresdefault.jpg" alt="maxresdefault" title="maxresdefault" id="wows0_1"/></li>
+		<li><a href="http://wowslider.net"><img src="data0/images/inteligenciaartificiald2.jpg" alt="javascript photo gallery" title="inteligencia-artificial-d2" id="wows0_2"/></a></li>
+		<li><img src="data0/images/shutterstock_6809297291635x1090.jpg" alt="shutterstock_680929729-1635x1090" title="shutterstock_680929729-1635x1090" id="wows0_3"/></li>
+	</ul></div>
+	<div class="ws_bullets"><div>
+		<a href="#" title="thumb-1920-523144"><span><img src="data0/tooltips/thumb1920523144.jpg" alt="thumb-1920-523144"/>1</span></a>
+		<a href="#" title="maxresdefault"><span><img src="data0/tooltips/maxresdefault.jpg" alt="maxresdefault"/>2</span></a>
+		<a href="#" title="inteligencia-artificial-d2"><span><img src="data0/tooltips/inteligenciaartificiald2.jpg" alt="inteligencia-artificial-d2"/>3</span></a>
+		<a href="#" title="shutterstock_680929729-1635x1090"><span><img src="data0/tooltips/shutterstock_6809297291635x1090.jpg" alt="shutterstock_680929729-1635x1090"/>4</span></a>
+	</div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">carousel jquery</a> by WOWSlider.com v8.8</div>
+	<div class="ws_shadow"></div>
+	</div>	
+	<script type="text/javascript" src="engine0/wowslider.js"></script>
+	<script type="text/javascript" src="engine0/script.js"></script>
+	<!-- End WOWSlider.com BODY section --><br><br><br>
+
+	<img src="Ai-Artificial-Intelligence-Art-3d-Illustration.jpg" data-aos="flip-right" style=" float:right;height: 400px; width: 300px; margin-top: 20px;margin-left: 10px;  margin-right: 40px; border-radius: 12%; border: 10px solid yellow ">
+	<div data-aos="fade-right" style="position:relative; z-index: -1; color: #777;background-color:white;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+
+<p>Artificial intelligence is a branch of computer science that aims to create intelligent machines. It has become an essential part of the technology industry. 
+
+<br><br>Research associated with artificial intelligence is highly technical and specialized. The core problems of artificial intelligence include programming computers for certain traits such as: <br>
+
+ 
+
+<br>1. Knowledge 
+<br>2. Reasoning
+<br>3. Problem solving                        
+<br>4. Perception
+<br>5. Learning
+<br>6. Planning
+<br>7. Ability to manipulate and move objects
+<br>
+
+
+<br>Knowledge engineering is a core part of AI research. Machines can often act and react like humans only if they have abundant information relating to the world. Artificial intelligence must have access to objects, categories, properties and relations between all of them to implement knowledge engineering. Initiating common sense, reasoning and problem-solving power in machines is a difficult and tedious task.<br><br>
+
+Machine learning is also a core part of AI. Learning without any kind of supervision requires an ability to identify patterns in streams of inputs, whereas learning with adequate supervision involves classification and numerical regressions. Classification determines the category an object belongs to and regression deals with obtaining a set of numerical input or output examples, thereby discovering functions enabling the generation of suitable outputs from respective inputs. Mathematical analysis of machine learning algorithms and their performance is a well-defined branch of theoretical computer science often referred to as computational learning theory.<br><br>
+
+Machine perception deals with the capability to use sensory inputs to deduce the different aspects of the world, while computer vision is the power to analyze visual inputs with a few sub-problems such as facial, object and gesture recognition.<br><br>
+
+Robotics is also a major field related to AI. Robots require intelligence to handle tasks such as object manipulation and navigation, along with sub-problems of localization, motion planning and mapping. <br><br></p>
+
+</div>
+
+
+</div>
+<div class="bgimg-2">
+
+	<br><br><img data-aos="fade-down" style="display: block; margin-right: auto;margin-left: auto; height: 150px"  src="coollogo_com-3745328.png"><br><br>
+<div style="display: flex;">
+<img data-aos="zoom-in-right" style=" flex: 33.33%;margin-right: 30px; margin-top:30px;margin-left: 40px; height: 400px;margin-bottom: 40px;border:10px solid green; border-radius: 5%" src="Artificial-Intelligence.jpg">
+<img data-aos="zoom-in-left" style="  flex: 33.33%;margin-left: 30px; margin-right: 40px; margin-top: 30px; height: 400px;margin-bottom: 40px;border:10px solid green; border-radius: 5%" src="Robo-human.png"><br><br><br></div>
+	<div data-aos="fade-in" data-aos-duration="2000" style="border-radius:3%;background-image: url(paper_texture_by_akinna_stock.jpg); color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+		<p><h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Here are 6 ways AI might affect us in the future</h1>
+
+<br><h1>1. Automated Transportation</h1>
+
+<br><br>We’re already seeing the beginnings of self-driving cars, though the vehicles are currently required to have a driver present at the wheel for safety. Despite these exciting developments, the technology isn’t perfect yet, and it will take a while for public acceptance to bring automated cars into widespread use. Google began testing a self-driving car in 2012, and since then, the U.S. Department of Transportation has released definitions of different levels of automation, with Google’s car classified as the first level down from full automation. Other transportation methods are closer to full automation, such as buses and trains.<br><br>
+
+<h1>2. Cyborg Technology</h1>
+
+<br><br>One of the main limitations of being human is simply our own bodies—and brains. Researcher Shimon Whiteson thinks that in the future, we will be able to augment ourselves with computers and enhance many of our own natural abilities. Though many of these possible cyborg enhancements would be added for convenience, others might serve a more practical purpose. Yoky Matsuka of Nest believes that AI will become useful for people with amputated limbs, as the brain will be able to communicate with a robotic limb to give the patient more control. This kind of cyborg technology would significantly reduce the limitations that amputees deal with on a daily basis.<br><br>
+
+<h1>3. Taking over dangerous jobs</h1>
+
+<br><br>Robots are already taking over some of the most hazardous jobs available, including bomb defusing. These robots aren’t quite robots yet, according to the BBC. They are technically drones, being used as the physical counterpart for defusing bombs, but requiring a human to control them, rather than using AI. Whatever their classification, they have saved thousands of lives by taking over one of the most dangerous jobs in the world. As technology improves, we will likely see more AI integration to help these machines function.<br><br>
+
+<h1>4. Solving climate change </h1>
+
+<br><br>Solving climate change might seem like a tall order from a robot, but as Stuart Russell explains, machines have more access to data than one person ever could—storing a mind-boggling number of statistics. Using big data, AI could one day identify trends and use that information to come up with solutions to the world’s biggest problems.<br><br>
+
+<h1>5. Robot as friends</h1> 
+
+<br><br>Who wouldn’t want a friend like C-3PO? At this stage, most robots are still emotionless and it’s hard to picture a robot you could relate to. However, a company in Japan has made the first big steps toward a robot companion—one who can understand and feel emotions. Introduced in 2014, “Pepper” the companion robot went on sale in 2015, with all 1,000 initial units selling out within a minute. The robot was programmed to read human emotions, develop its own emotions, and help its human friends stay happy. Pepper goes on sale in the U.S. in 2016, and more sophisticated friendly robots are sure to follow.<br><br>
+<h1>6. Improved elder care</h1>
+
+<br><br>For many seniors, everyday life is a struggle, and many have to hire outside help to manage their care, or rely on family members. AI is at a stage where replacing this need isn’t too far off, says Matthew Taylor, computer scientist at Washington State University. “Home” robots could help seniors with everyday tasks and allow them to stay independent and in their homes for as long as possible, which improves their overall well-being.</p>
+</div>
+<div class="bgimg-3">
+	
+	<br><br><img data-aos="flip-up" style="display: block; margin-right: auto;margin-left: auto; width: 1000px ; height: 150px"  src="coollogo_com-4765628.png"><br><br>
+	<video class="e" data-aos="zoom-in" style="display: block;margin-right: auto;margin-left: 20%;" width="800" height="500" controls>
+  <source src="Project Alexandria- Pursuing Common Sense for AI.mp4" type="video/mp4"></video><br><br><br><br>
+		<div data-aos="fade-in" data-aos-duration="2000" style="border-radius:3%;background-image: url(127761-download-free-light-yellow-background-1920x1080-for-iphone-6.jpg); color: #777;text-align:center;padding:50px 80px;text-align: justify ; font-size: 20px">
+			<p>In artificial intelligence research, commonsense knowledge consists of facts about the everyday world, such as "Lemons are sour", that all humans are expected to know. The first AI program to address common sense knowledge was Advice Taker in 1959 by John McCarthy .<br><br>
+
+It is currently an unsolved problem in Artificial General Intelligence and is a focus of the Paul Allen Institute for Artificial Intelligence.[2] Commonsense knowledge can underpin a commonsense reasoning process, to attempt inferences such as "You might bake a cake because you want to people to eat the cake." A natural language processing process can be attached to the commonsense knowledge base to allow the knowledge base to attempt to answer commonsense questions about the world.[3] Common sense knowledge also helps to solve problems in the face of incomplete information. Using widely held beliefs about everyday objects, or common sense knowledge, AI systems make common sense assumptions or default assumptions about the unknown similar to the way people do. In an AI system or in english, this is expressed as 'Normally P holds', 'Usually P' or 'Typically P so Assume P'. For example if we know the fact 'tweety is a bird' , because we know the commonly held belief about birds, Typically Birds Fly, without knowing anything else about tweety, we may reasonably assume the fact that 'tweety can fly.' As more knowledge of the world is discovered or learned over time, the AI system can revise its assumptions about tweety using a truth maintenance process. If we later learn that 'tweety is a penguin' then truth maintenance revises this assumption because we also know 'penguins do not fly'.</p>
+	</div>
+</div>
+
+</div>
+<div style="background-color: black">
+<div style="display: flex">
+<h1 data-aos="fade-down-right" style="color: orange; font-family: Comic Sans MS; flex: 30%;
+    padding: 5px;margin-left:80px; margin-top: 30px;background-color: black">FOLLOW US ON OR LOCATE US </h1>
+<div style="flex: 70%;
+    padding: 5px; margin-top: 20px " data-aos="fade-up-left">
+ <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/twi?lang=en" class="fa fa-twitter"></a>
+<a href="https://www.google.com/
+" class="fa fa-google"></a>
+<a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+<a href="https://in.pinterest.com" class="fa fa-pinterest"></a>
+<a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+<a href="https://www.skype.com/en" class="fa fa-skype"></a>
+<a href="https://www.android.com" class="fa fa-android"></a>
+</div></div> <br>
+<div style=" display: flex; ">
+ <div data-aos="zoom-out-down" id="map" style="width:100px;height:450px; flex: 33.33%;
+    padding: 5px; margin-top: 10px;margin-left: 40px ;border : 10px solid DEEPSKYBLUE;border-radius: 5% ">
+   
+<script>
+// Initialize google maps
+function myMap() {
+  var myCenter = new google.maps.LatLng(28.703241, 77.128589);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwUSberJ-phZ5l4xOba-ntDGww5ns6oP4&callback=myMap"></script></div>
+<div  data-aos="flip-right" class="container" style=" flex: 33.33%;
+    ;margin-right: 60px; margin-left: 40px; ">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+ 
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" onclick="myfiction();return getData()" id="contact-submit"  >Submit</button>
+      <div id="snackbar" >Thanks for submitting</div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+  	$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+
+}
+  </script>
+  <script>
+function myfiction() {
+    var x = document.getElementById("snackbar");
+   
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+document.getElementById("contact").reset();
+
+}
+</script>
+ </div>
+  
+</div>
+
+</div>
+</body>
+</html>

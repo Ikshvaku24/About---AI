@@ -1,0 +1,762 @@
+
+<!DOCTYPE html>
+<html >
+<head>
+<!-- Start WOWSlider.com HEAD section -->
+<link rel="stylesheet" type="text/css" href="engine1/style.css" />
+<script type="text/javascript" src="engine1/jquery.js"></script>
+<!-- End WOWSlider.com HEAD section -->
+<link rel="stylesheet"  href="aos-master/dist/aos.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>AI SENSE</title>
+	<style>
+.fa {
+  padding: 20px;
+  font-size: 30px;
+  width: 70px;
+  text-align: center;
+  text-decoration: none;
+  margin: 5px 2px;
+  border-radius: 50%;
+}
+
+.fa:hover {
+    opacity: 0.7;
+}
+
+.fa-facebook {
+  background: #3B5998;
+  color: white;
+}
+
+.fa-twitter {
+  background: #55ACEE;
+  color: white;
+}
+
+.fa-google {
+  background: #dd4b39;
+  color: white;
+}
+
+.fa-linkedin {
+  background: #007bb5;
+  color: white;
+}
+
+.fa-youtube {
+  background: #bb0000;
+  color: white;
+}
+
+.fa-instagram {
+  background: #125688;
+  color: white;
+}
+
+.fa-pinterest {
+  background: #cb2027;
+  color: white;
+}
+
+.fa-snapchat-ghost {
+  background: #fffc00;
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.fa-skype {
+  background: #00aff0;
+  color: white;
+}
+
+.fa-android {
+  background: #a4c639;
+  color: white;
+}
+
+
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600);
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-font-smoothing:antialiased;
+	-moz-font-smoothing:antialiased;
+	-o-font-smoothing:antialiased;
+	font-smoothing:antialiased;
+	text-rendering:optimizeLegibility;
+}
+
+.container {
+	max-width:400px;
+	
+	
+	
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea, #contact button[type="submit"] { font:400 12px/16px "Open Sans", Helvetica, Arial, sans-serif; }
+
+#contact {
+	background:NAVAJOWHITE;
+	padding:25px;
+	margin:10px 0;
+}
+
+#contact h3 {
+	color: #F96;
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: medium none !important;
+	margin: 0 0 10px;
+	min-width: 100%;
+	padding: 0;
+	width: 100%;
+}
+
+#contact input[type="text"], #contact input[type="email"], #contact input[type="tel"], #contact input[type="url"], #contact textarea {
+	width:100%;
+	border:1px solid #CCC;
+	background:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact input[type="text"]:hover, #contact input[type="email"]:hover, #contact input[type="tel"]:hover, #contact input[type="url"]:hover, #contact textarea:hover {
+	-webkit-transition:border-color 0.3s ease-in-out;
+	-moz-transition:border-color 0.3s ease-in-out;
+	transition:border-color 0.3s ease-in-out;
+	border:1px solid #AAA;
+}
+
+#contact textarea {
+	height:100px;
+	max-width:100%;
+  resize:none;
+}
+
+#contact button[type="submit"] {
+	cursor:pointer;
+	width:100%;
+	border:none;
+	background:#0CF;
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+	font-size:15px;
+}
+
+#contact button[type="submit"]:hover {
+	background:#09C;
+	-webkit-transition:background 0.3s ease-in-out;
+	-moz-transition:background 0.3s ease-in-out;
+	transition:background-color 0.3s ease-in-out;
+}
+
+#contact button[type="submit"]:active { box-shadow:inset 0 1px 3px rgba(0, 0, 0, 0.5); }
+
+#contact input:focus, #contact textarea:focus {
+	outline:0;
+	border:1px solid #999;
+}
+::-webkit-input-placeholder {
+ color:#888;
+background-color: white}
+:-moz-placeholder {
+ color:#888;
+background-color: white}
+::-moz-placeholder {
+ color:#888;
+background-color: white}
+:-ms-input-placeholder {
+ color:#888;
+background-color: white}
+
+	/* width */
+::-webkit-scrollbar {
+    width: 20px; background-color: white
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: red; 
+    border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #b30000; 
+}
+	
+}
+::-webkit-input-placeholder {
+ color:#888;
+}
+:-moz-placeholder {
+ color:#888;
+}
+::-moz-placeholder {
+ color:#888;
+}
+:-ms-input-placeholder {
+ color:#888;
+}
+#button2 {
+  FONT-FAMILY:papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+float:right;
+display: none;}
+
+#button2 span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+#button2 span:after {
+  content: '<<';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  left: -15px;
+  transition: 0.5s;
+}
+
+#button2:hover span {
+  padding-left: 25px;
+}
+
+#button2:hover span:after {
+  opacity: 1;
+ left: -20px;
+}
+#button2:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);
+}
+#divcontent{display: none;}	
+	#button {
+
+  font-family: papyrus;
+  font-style:oblique;
+  font-weight:bold;
+  border-radius: 4px;
+  background-color: PaleGoldenRod;
+  border: none;
+  color: ForestGreen ;
+  text-align: center;
+  font-size: 28px;
+  padding: 10px;
+  width: 350px;
+  transition: all 0.9s;
+  cursor: pointer;
+  margin: 5px;
+ box-shadow: 10px 5px LightCyan ;
+
+}
+
+#button span {
+  cursor: pointer;
+  display: inline;
+  position: relative;
+  transition: 0.9s;
+}
+
+#button span::after {
+  content: '>>';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -15px;
+  transition: 0.9s;
+}
+
+#button:hover span {
+  padding-right: 25px;
+  transition: 0.9s;}
+
+#button:hover span:after {
+  opacity: 1;
+  right: -20px;
+  transition: 0.9s;}
+#button:active {
+box-shadow: 2px 2px LightCyan;
+  transform: translateX(4px);}
+	
+	#west{ margin-right:  200px;
+    border:15px solid Aquamarine ;
+    border-radius:10%;}
+
+	.mySlides {display: none}
+
+#p5 {vertical-align: middle;}
+
+
+	.bgimg-1, .bgimg-2, .bgimg-3 {
+  position: relative;
+  opacity: 0.95;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.bgimg-1 {
+  background-image: url("Untitled-1.jpg");
+  min-height: 100%;
+}
+.bgimg-2 {
+  background-image: url("cyberpunk shodan system shock 2 artificial intelligence system shock sf 1920x1080 wallpaper_www.paperhi.com_22.jpg");
+  min-height: 400px;
+}
+
+
+
+	* {box-sizing: border-box;}
+.example input[type=text] {
+    height: 40px;
+    width: 130px;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.example input[type=text]:focus {
+    width: 225px;
+}
+.example button {
+    float: left;
+    height: 40px;
+    width: 50px;
+    margin-right: 5px;
+    background: #333;
+    
+    font-size: 17px;
+    
+    border: none;
+    cursor: pointer;
+}
+
+.example button:hover {
+    background: khaki;
+}
+
+.example::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+	
+	#upper{ height: 175px;
+		width: 100%;
+		margin: auto;
+		background: radial-gradient(circle, khaki,lightsalmon);
+	}
+	#p4{ height: 125px;
+	     padding-top: 15px;
+	     padding-left: 20px;}
+	#p1{padding-top: 10px;
+		padding-left: 20px;
+	height: 150px;}
+		#p2{padding-top: 10px;
+		height: 150px;}
+		#p3{padding-top: 10px;
+		height: 150px;}
+
+
+#navbar {
+  overflow: hidden;
+  background-color: #333;
+}
+
+#navbar a {
+  float: left;
+  display: block;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+#navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+#navbar a.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.content {
+  padding: 16px;
+}
+
+.sticky {
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
+
+.sticky + .content {
+  padding-top: 60px;
+}
+div.we{font-style:oblique;
+       font-weight:bold;
+       font-size:50px;
+      padding:6px;
+      color:yellow;
+  float: left;
+    -webkit-animation-name: example; 
+    -webkit-animation-duration: 4s; 
+    animation-name: example;
+    animation-duration: 4s;
+    animation-iteration-count:infinite;}
+@keyframes example {
+   0%{color: black;}
+   25%{color:red ;}
+   50%{color: darkblue  ;}
+   75%{color: green  ;}
+  100%{color: black;}
+}
+
+
+	</style>
+
+	
+<body style="background-color: black;overflow-x: hidden;" >
+	
+
+<div  id="upper" style="display: flex;" >
+<img  id="p4" src="Webp.net-gifmaker (1).gif">
+
+<img  id="p2" src="coollogo_com-5822229.png">
+<img  id="p3" src="coollogo_com-5460411.png">
+ <div class="we" style="flex: 33%; padding-top: 40px" align="center"><font face="tempus sans ITC">"AI can read, see and hear" </font></div>
+ </div>
+
+ 
+ <div style="z-index: 20" id="navbar">
+  <a  href="index.html">Home</a>
+  <a  href="Interaction.html">Interaction</a>
+  <a href="Knowledge.html">Knowledge</a> 
+  <a href="Analyze.html">Analyze</a>
+  <a class="active" href="Service.html">Service</a>
+ <form class="example" action="/action_page.php">
+  <button  style="margin-left: 500px;margin-top: 3.2px; "><img style="height:20px ;width: 20px" src="152440010591697190.png"></button>
+  <input type="text" name="search" placeholder="Search.." style="margin-top: 3.2px">
+
+</form>
+</div>
+
+<script>
+window.onscroll = function() {myFuction()};
+
+var navbar = document.getElementById("navbar");
+var sticky = navbar.offsetTop;
+
+function myFuction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")}
+   else {
+    navbar.classList.remove("sticky");
+  }
+}
+</script>
+<div class="bgimg-1">
+	<script src="aos-master/dist/aos.js"></script>
+	<script type="text/javascript">
+		AOS.init({
+			duration : 1000,
+		});
+	</script>
+<img  id="p5" src="coollogo_com-241622764.png" data-aos="zoom-in" style="display: block;margin-left: auto;margin-right: auto; width: 700px;height: 200px padding-top: 40px;">
+<br><br>
+<!-- Start WOWSlider.com BODY section -->
+<div id="wowslider-container1">
+<div class="ws_images"><ul>
+    <li><img src="data1/images/workingtogether.png" alt="working-together" title="working-together" id="wows1_0"/></li>
+    <li><img src="data1/images/robohuman.png" alt="Robo-human" title="Robo-human" id="wows1_1"/></li>
+    <li><img src="data1/images/robots.jpg" alt="robots" title="robots" id="wows1_2"/></li>
+    <li><a href="http://wowslider.net"><img src="data1/images/35d8ad63000005780imagem3_1467361358247.jpg" alt="html5 slideshow" title="35D8AD6300000578-0-image-m-3_1467361358247" id="wows1_3"/></a></li>
+    <li><img src="data1/images/103_65480552.jpg" alt="103_65480552" title="103_65480552" id="wows1_4"/></li>
+  </ul></div>
+  <div class="ws_bullets"><div>
+    <a href="#" title="working-together"><span><img src="data1/tooltips/workingtogether.png" alt="working-together"/>1</span></a>
+    <a href="#" title="Robo-human"><span><img src="data1/tooltips/robohuman.png" alt="Robo-human"/>2</span></a>
+    <a href="#" title="robots"><span><img src="data1/tooltips/robots.jpg" alt="robots"/>3</span></a>
+    <a href="#" title="35D8AD6300000578-0-image-m-3_1467361358247"><span><img src="data1/tooltips/35d8ad63000005780imagem3_1467361358247.jpg" alt="35D8AD6300000578-0-image-m-3_1467361358247"/>4</span></a>
+    <a href="#" title="103_65480552"><span><img src="data1/tooltips/103_65480552.jpg" alt="103_65480552"/>5</span></a>
+  </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.net">wow slider</a> by WOWSlider.com v8.8</div>
+<div class="ws_shadow"></div>
+</div>  
+<script type="text/javascript" src="engine1/wowslider.js"></script>
+<script type="text/javascript" src="engine1/script.js"></script>
+<!-- End WOWSlider.com BODY section -->
+	
+<br><br><br>
+
+	
+  <video data-aos="zoom-in" style="display: block;margin-right: auto;margin-left: 20%;" src="Motion Planning - Artificial Intelligence for Robotics.mp4" data-aos="flip-right"  width="800" height="500" controls></video><br><br><br>
+  <div data-aos="fade-right" style="position:relative; z-index: -1; color: #777;background-color:AntiqueWhite  ;text-align:center;padding:50px 80px;text-align: justify; border-radius: 5%; width: 100%;">
+
+<p>Motion planning (also known as the navigation problem or the piano mover's problem) is a term used in robotics for the process of breaking down a desired movement task into discrete motions that satisfy movement constraints and possibly optimize some aspect of the movement.<br><br>
+
+For example, consider navigating a mobile robot inside a building to a distant waypoint. It should execute this task while avoiding walls and not falling down stairs. A motion planning algorithm would take a description of these tasks as input, and produce the speed and turning commands sent to the robot's wheels. Motion planning algorithms might address robots with a larger number of joints (e.g., industrial manipulators), more complex tasks (e.g. manipulation of objects), different constraints (e.g., a car that can only drive forward), and uncertainty (e.g. imperfect models of the environment or robot).<br><br>
+
+Motion planning has several robotics applications, such as autonomy, automation, and robot design in CAD software, as well as applications in other fields, such as animating digital characters, video game artificial intelligence, architectural design, robotic surgery, and the study of biological molecules.<br><br></p>
+
+<button id="button" type="button" onclick="myFunction();" ><span >Click To Read More </span></button>
+<div id="divcontent">A basic motion planning problem is to produce a continuous motion that connects a start configuration S and a goal configuration G, while avoiding collision with known obstacles. The robot and obstacle geometry is described in a 2D or 3D workspace, while the motion is represented as a path in (possibly higher-dimensional) configuration space.<br><br>
+
+<h2 style="font-weight: bold; text-align: center;font-size: 50px; color: forestgreen;">Configuration space</h2><br><br>
+A configuration describes the pose of the robot, and the configuration space C is the set of all possible configurations. For example:<br><br>
+
+If the robot is a single point (zero-sized) translating in a 2-dimensional plane (the workspace), C is a plane, and a configuration can be represented using two parameters (x, y).<br><br>
+If the robot is a 2D shape that can translate and rotate, the workspace is still 2-dimensional. However, C is the special Euclidean group SE(2) = R2 {\displaystyle \times } \times  SO(2) (where SO(2) is the special orthogonal group of 2D rotations), and a configuration can be represented using 3 parameters (x, y, θ).<br><br>
+If the robot is a solid 3D shape that can translate and rotate, the workspace is 3-dimensional, but C is the special Euclidean group SE(3) = R3 {\displaystyle \times } \times  SO(3), and a configuration requires 6 parameters: (x, y, z) for translation, and Euler angles (α, β, γ).<br><br>
+If the robot is a fixed-base manipulator with N revolute joints (and no closed-loops), C is N-dimensional.<br><br>
+<h2 style="font-weight: bold; text-align: center;font-size: 50px; color: forestgreen;">Free space</h2><br><br>
+The set of configurations that avoids collision with obstacles is called the free space Cfree. The complement of Cfree in C is called the obstacle or forbidden region.<br><br>
+Often, it is prohibitively difficult to explicitly compute the shape of Cfree. However, testing whether a given configuration is in Cfree is efficient. First, forward kinematics determine the position of the robot's geometry, and collision detection tests if the robot's geometry collides with the environment's geometry.
+<br><br>
+<h2 style="font-weight: bold; text-align: center;font-size: 50px; color: forestgreen;">Target space</h2><br><br>
+Target space is a linear subspace of free space which denotes where we want the robot to move to. In global motion planning, target space is observable by the robot's sensors. However, in local motion planning, the robot cannot observe the target space in some states. To solve this problem, the robot goes through several virtual target spaces, each of which is located within the observable area (around the robot). A virtual target space is called a sub-goal <br><br>
+
+</div>
+<button id="button2" type="button" onclick="myFnction();" ><span >Click To Read Less </span></button><br><br>
+<script>
+function myFunction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "none"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "block"
+var z = document.getElementById("button2");
+if (z.style.display === "block"){ z.style.display = "none" ;}
+else{z.style.display = "block";}
+}
+
+function myFnction() {
+    
+var y = document.getElementById("button");
+     y.style.display = "block"
+
+    var x = document.getElementById("divcontent");
+    x.style.display = "none"
+var z = document.getElementById("button2");
+        z.style.display = "none"}
+</script>
+</div>
+
+
+</div>
+<div class="bgimg-2">
+
+	<br><br><h1 data-aos="zoom-in-left" style="display: block; margin-right: auto; font-weight: bold;color: gold; font-size: 140px; font-family: Aharoni ; margin-left: 200px;"> The Two Bots </h1><br><br>
+<div style="display: flex;"> 
+  <img data-aos="zoom-in-right" style=" width: 175px; flex: 33.33%;margin-right: 30px; margin-top:30px;margin-left: 40px; height: 400px;margin-bottom: 40px;border:10px solid  OrangeRed  ;border-radius: 5%" src="pxov2ekbuwben8o3n2ha.gif">
+<img data-aos="zoom-in-left" style=" width: 175px;  flex: 33.33%;margin-left: 30px; margin-right: 40px; margin-top: 30px; height: 400px;margin-bottom: 40px;border:10px solid OrangeRed  ; border-radius: 5%" src="ConfusedGenuineDachshund-size_restricted.gif"><br><br><br>
+</div>
+<div style="display: flex;" >
+  <div data-aos="fade-down"  style="width: 175px; flex: 33.33%;margin-right: 30px; margin-top:30px;margin-left: 40px; height: 1100px;margin-bottom: 40px;border-radius:3%;background-color: LightGoldenRodYellow ; color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+    <p><h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Atlas</h1><br><br>
+
+Atlas is a bipedal humanoid robot primarily developed by the American robotics company Boston Dynamics, with funding and oversight from the United States Defense Advanced Research Projects Agency (DARPA). The 1.8-meter (6 ft) robot is designed for a variety of search and rescue tasks, and was unveiled to the public on July 11, 2013<br><br>
+<h2>Design and development</h2><br><br>
+The design and production of Atlas was overseen by the DARPA, an agency of the United States Department of Defense, in cooperation with Boston Dynamics. One of the robot's hands was developed by Sandia National Laboratories, while the other was developed by iRobot.[2] In 2013, DARPA program manager Gill Pratt compared the prototype version of Atlas to a small child, saying that "a 1-year-old child can barely walk, a 1-year-old child falls down a lot ... this is where we are right now."[1]<br><br>
+
+Atlas is based on Boston Dynamics' earlier PETMAN humanoid robot, and has four hydraulically-actuated limbs.[3] Constructed of aluminum and titanium, it stands approximately 5.9 feet tall, weighs 330 pounds (150 kg), and is illuminated with blue LEDs.[1][3] Atlas is equipped with two vision systems – a laser rangefinder and stereo cameras, both controlled by an off-board computer – and has hands with fine motor skill capabilities.[3] Its limbs possess a total of 28 degrees of freedom.[3] Atlas can navigate rough terrain and climb independently using its arms and legs, although the 2013 prototype version was tethered to an outside power supply.[3]<br><br>
+
+In October 2013 Boston Dynamics uploaded a video showing Atlas could withstand being hit by projectiles and balance on one leg.[4]<br><br>
+
+In 2014, Atlas robots programmed by six different teams competed in the DARPA Robotics Challenge to test the robot's ability to perform various tasks, including getting in and out of a vehicle and driving it, opening a door, and using a power tool. A variety of other robots also competed. The contest was inspired by the 2011 Fukushima Daiichi nuclear disaster, and carries a USD 2 million prize for the winning team.[1]<br><br>
+
+In the 2015 DARPA robotics finals Atlas from IHMC Robotics (named Running Man) came second behind the Korean team Kaist and their robot DRC-Hubo by a margin of six minutes, completing the entire course in a time of 50:26<br><br></p>
+
+</div>
+<div data-aos="fade-down"  style="width: 175px; flex: 33.33%;margin-right: 30px; margin-top:30px;margin-left: 40px; height: 1100px;margin-bottom: 40px;border-radius:3%;background-color: LightGoldenRodYellow ; color: #777;text-align:center;padding:50px 80px;text-align: justify;">
+    <p><h1 style="font-weight: bold; text-align: center;font-size: 50px; color: tomato;">Asimo</h1><br><br>
+
+ASIMO (whose name comes from English initials or words Advanced Step in Innovative Mobility) is a humanoid robot created by Honda in 2000. It is currently displayed in Miraikan museum in the Japanese capital city of Tokyo.
+
+<br><br>
+<h2>Abilities and development</h2><br><br>
+Honda began developing humanoid robots in the 1980s, including several prototypes that preceded ASIMO. It was the company's goal to create a walking robot. E0 was the first bipedal (two-legged) model produced as part of the Honda E series, which was an early experimental line of self-regulating, humanoid walking robot with wireless movements created between 1986 and 1993.[1][2] This was followed by the Honda P series of robots produced from 1993 through 1997. The research made on the E- and P-series led to the creation of ASIMO. Development began at Honda's Wako Fundamental Technical Research Center in Japan in 1999 and ASIMO was unveiled in October 2000.<br><br>
+
+ASIMO stands 130 cm (4 ft 3 in) tall and weighs 54 kg (119 lb). Research conducted by Honda found that the ideal height for a mobility assistant robot was between 120 cm and the height of an average adult, which is conducive to operating door knobs and light switches.[1][5] ASIMO is powered by a rechargeable 51.8 V lithium-ion battery with an operating time of one hour. Switching from a nickel metal hydride in 2004 increased the amount of time ASIMO can operate before recharging.[6] ASIMO has a three-dimensional computer processor that was created by Honda and consists of a three stacked die, a processor, a signal converter and memory.[7] The computer that controls ASIMO's movement is housed in the robot's waist area and can be controlled by a PC, wireless controller, or voice commands.<br><br>
+
+
+ASIMO has the ability to recognize moving objects, postures, gestures, its surrounding environment, sounds and faces, which enables it to interact with humans. The robot can detect the movements of multiple objects by using visual information captured by two camera "eyes" in its head and also determine distance and direction. This feature allows ASIMO to follow or face a person when approached.[1] The robot interprets voice commands and human gestures, enabling it to recognize when a handshake is offered or when a person waves or points, and then respond accordingly.[8] ASIMO's ability to distinguish between voices and other sounds allows it to identify its companions. ASIMO is able to respond to its name and recognizes sounds associated with a falling object or collision. This allows the robot to face a person when spoken to or look towards a sound. <br><br></p>
+
+</div>
+</div>
+<div style="display: flex">
+<video width="800" height="400" data-aos="zoom-in-right" style=" width: 175px; flex: 33.33%;margin-right: 30px; margin-top:30px;margin-left: 40px; margin-bottom: 40px;"  src="Atlas, The Next Generation.mp4" controls></video>
+<video width="800" height="400" data-aos="zoom-in-left" style=" width: 175px;  flex: 33.33%;margin-left: 30px; margin-right: 40px; margin-top: 30px; margin-bottom: 40px;" src="Honda's Asimo- the penalty-taking, bar-tending robot.mp4" controls></video><br><br><br>
+</div>
+<div style="background-color: black">
+<div style="display: flex">
+<h1 data-aos="fade-down-right" style="color: orange; font-family: Comic Sans MS; flex: 30%;
+    padding: 5px;margin-left:80px; margin-top: 30px;background-color: black">FOLLOW US ON OR LOCATE US </h1>
+<div style="flex: 70%;
+    padding: 5px; margin-top: 20px " data-aos="fade-up-left">
+ <a href="https://www.facebook.com/" class="fa fa-facebook"></a>
+<a href="https://twitter.com/twi?lang=en" class="fa fa-twitter"></a>
+<a href="https://www.google.com/
+" class="fa fa-google"></a>
+<a href="https://in.linkedin.com" class="fa fa-linkedin"></a>
+<a href="https://www.youtube.com/" class="fa fa-youtube"></a>
+<a href="https://www.instagram.com/" class="fa fa-instagram"></a>
+<a href="https://in.pinterest.com" class="fa fa-pinterest"></a>
+<a href="https://www.snapchat.com/" class="fa fa-snapchat-ghost"></a>
+<a href="https://www.skype.com/en" class="fa fa-skype"></a>
+<a href="https://www.android.com" class="fa fa-android"></a>
+</div></div> <br>
+<div style=" display: flex; ">
+ <div data-aos="zoom-out-down" id="map" style="width:100px;height:450px; flex: 33.33%;
+    padding: 5px; margin-top: 10px;margin-left: 40px ;border : 10px solid DEEPSKYBLUE;border-radius: 5% ">
+   
+<script>
+// Initialize google maps
+function myMap() {
+  var myCenter = new google.maps.LatLng(28.703241, 77.128589);
+  var mapCanvas = document.getElementById("map");
+  var mapOptions = {center: myCenter, zoom: 12};
+  var map = new google.maps.Map(mapCanvas, mapOptions);
+  var marker = new google.maps.Marker({position:myCenter});
+  marker.setMap(map);
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwUSberJ-phZ5l4xOba-ntDGww5ns6oP4&callback=myMap"></script></div>
+<div  data-aos="flip-right" class="container" style=" flex: 33.33%;
+    ;margin-right: 60px; margin-left: 40px; ">  
+  <form id="contact" action="" method="post">
+    <h3>Quick Contact</h3>
+    <h4>Contact us today, and get reply with in 24 hours!</h4>
+    <fieldset>
+      <input placeholder="Your name" type="text" tabindex="1" required >
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Email Address" type="email" tabindex="2" required>
+    </fieldset>
+    <fieldset>
+      <input placeholder="Your Phone Number" type="tel" tabindex="3" required>
+    </fieldset>
+ 
+    <fieldset>
+      <textarea placeholder="Type your Message Here...." tabindex="5" required></textarea>
+    </fieldset>
+    <fieldset>
+      <button name="submit" type="submit" onclick="myfiction();return getData()" id="contact-submit"  >Submit</button>
+      <div id="snackbar" >Thanks for submitting</div>
+    </fieldset>
+  </form>
+  <script type="text/javascript">
+  	$('form').submit(function (evt) {
+   evt.preventDefault(); //prevents the default action
+
+}
+  </script>
+  <script>
+function myfiction() {
+    var x = document.getElementById("snackbar");
+   
+    x.className = "show";
+    setTimeout(function(){ x.className = x.className.replace("show", ""); }, 3000);
+document.getElementById("contact").reset();
+
+}
+</script>
+ </div>
+  
+</div>
+
+</div>
+</body>
+</html>
